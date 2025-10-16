@@ -14,7 +14,7 @@ import "./App.css";
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Header />
         <Nav />
         <Routes>
