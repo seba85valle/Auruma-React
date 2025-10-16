@@ -1,0 +1,25 @@
+.navbar {
+  font-family: "Poppins", sans-serif;
+  padding: 0.5rem 1rem;
+}
+
+.logo {
+  width: 68px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-link {
+  color: #000 !important;
+  font-weight: 500;
+  transition: color 0.25s ease, transform 0.15s ease;
+}
+
+.nav-link:hover {
+  color: #800000 !important;
+  transform: translateY(-2px);
+  text-decoration: underline;
+  text-decoration-color: #800000;
+}
+
+

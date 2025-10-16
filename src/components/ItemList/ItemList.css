@@ -1,0 +1,25 @@
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+  transform: scale(1.02);
+}
+
+.mensaje-vacio {
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+}
+
+.row {
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .card-link {
+    display: block;
+  }
+}
