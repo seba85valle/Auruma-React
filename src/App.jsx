@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { Nav } from "./components/Nav/Nav";
 import { Hero } from "./components/Hero/Hero";
