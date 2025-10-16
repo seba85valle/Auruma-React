@@ -14,7 +14,6 @@ import "./App.css";
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Header />
         <Nav />
         <Routes>
@@ -41,7 +40,6 @@ function App() {
           <Route path="/contacto" element={<ContactForm />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
     </CartProvider>
   );
 }
