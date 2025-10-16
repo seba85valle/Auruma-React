@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "name": "Shine Blue",
+    "price": 26000,
+    "category": "femeninos",
+    "description": "Fresca y luminosa, combina notas de manzana y limón siciliano con un corazón floral de jazmín y bambú, sobre una base suave de ámbar y almizcle.",
+    "imageUrl": "/images/shine.jpeg"
+  },
+  {
+    "id": "2",
+    "name": "Oh My God",
+    "price": 26000,
+    "category": "femeninos",
+    "description": "Un exquisito aroma dulce y envolvente con salida de pera y pomelo, corazón floral de rosa y jazmín, y fondo cálido de vainilla y patchouli.",
+    "imageUrl": "/images/mygod.jpeg"
+  },
+  {
+    "id": "3",
+    "name": "Oh Darling",
+    "price": 26000,
+    "category": "femeninos",
+    "description": "Intensa y elegante, con notas iniciales de café y almendra, un corazón floral de jazmín y nardos, y fondo gourmand de cacao y vainilla.",
+    "imageUrl": "/images/darling.jpeg"
+  },
+  {
+    "id": "4",
+    "name": "She",
+    "price": 26000,
+    "category": "femeninos",
+    "description": "Moderna, vanguardista y delicada, mezcla jazmín y menta con un toque de vainilla y ámbar gris, sobre una base cremosa y suave de almizcle.",
+    "imageUrl": "/images/she.jpeg"
+  },
+  {
+    "id": "5",
+    "name": "Maria",
+    "price": 26000,
+    "category": "femeninos",
+    "description": "Refrescante y natural, une cítricos brillantes con un corazón floral de jazmín y petitgrain, sobre un fondo de almizcle blanco y maderas claras.",
+    "imageUrl": "/images/maria.jpeg"
+  },
+  {
+    "id": "6",
+    "name": "Only One",
+    "price": 26000,
+    "category": "masculinos",
+    "description": "Aroma especiado y elegante, con salida cítrica de bergamota, corazón de canela y lavanda, y fondo cálido de vainilla, sándalo y vetiver.",
+    "imageUrl": "/images/onlyone.jpeg"
+  },
+  {
+    "id": "7",
+    "name": "Épico",
+    "price": 26000,
+    "category": "masculinos",
+    "description": "Sofisticada, refinada y poderosa, con notas de lima y bergamota, corazón floral de rosa y orris, y fondo intenso de cuero, coco y patchouli.",
+    "imageUrl": "/images/epico.jpeg"
+  },
+  {
+    "id": "8",
+    "name": "He",
+    "price": 26000,
+    "category": "masculinos",
+    "description": "Vibrante y fresca, combina lima y menta con un corazón aromático de cardamomo y geranio, sobre un fondo amaderado de vetiver y ámbar.",
+    "imageUrl": "/images/he.jpeg"
+  },
+  {
+    "id": "9",
+    "name": "Pura",
+    "price": 35000,
+    "category": "unisex",
+    "description": "Luminosa y frutal, abre con cítricos y frutas tropicales, revelando un corazón dulce y jugoso, y cerrando con un fondo cálido de vainilla y ámbar.",
+    "imageUrl": "/images/pura.jpeg"
+  },
+  {
+    "id": "10",
+    "name": "Exodo",
+    "price": 35000,
+    "category": "unisex",
+    "description": "Profunda y sensual, con salida especiada de pimienta negra, corazón floral de lavanda y azahar, y base rica de sándalo, ámbar y almizcle.",
+    "imageUrl": "/images/exodo.jpeg"
+  },
+  {
+    "id": "11",
+    "name": "Woman In Black",
+    "price": 33000,
+    "category": "premium",
+    "description": "Oscura, enigmática y misteriosa, combina almendra y pimienta rosa con un corazón floral de violeta y cacao, y fondo sensual de vainilla y sándalo.",
+    "imageUrl": "/images/womaninblack.webp"
+  },
+  {
+    "id": "12",
+    "name": "Man In Black",
+    "price": 33000,
+    "category": "premium",
+    "description": "Intensa y audaz, abre con notas de ron y tabaco, desarrolla un corazón cálido de cuero e iris, y finaliza con un fondo ambarado y dulce.",
+    "imageUrl": "/images/maninsblack.webp"
+  }
+]
