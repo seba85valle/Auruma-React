@@ -23,19 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 
-# Dependencias
-node_modules/
-
-# Builds
-dist/
-build/
-
-# Config local
-.env
-.DS_Store
-.vscode/
-.idea/
-
-# Vite cache
-.vite/
-
