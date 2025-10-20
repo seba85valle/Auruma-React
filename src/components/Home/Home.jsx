@@ -36,7 +36,7 @@ export const Home = () => {
           <div className="home-about__text">
             <p className="lead">
               Desde <strong>AURUMA</strong> te acercamos perfumes exclusivos que evocan emociones y recuerdos,
-              porque cada fragancia tiene una historia que contar y cada cliente forma parte de la nuestra.
+              porque cada fragancia tiene una historia que contar.
             </p>
             <p>
               El nombre <strong>AURUMA</strong> nace de la fusión entre las palabras <em>aura</em> y <em>perfume</em>,
