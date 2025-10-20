@@ -72,7 +72,7 @@ export const Home = () => {
             {/* Card 2 */}
             <article className="card servicio-card">
               <div className="card__icon">
-                <i className="bi bi-truck"></i>
+                <i className="bi bi-droplet"></i>
               </div>
               <h3 className="card__title">Experiencia Sensorial</h3>
               <p className="card__text">
