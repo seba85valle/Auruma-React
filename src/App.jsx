@@ -1,7 +1,7 @@
-import {  BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { Nav } from "./components/Nav/Nav";
-import { Hero } from "./components/Hero/Hero";
+import { Home } from "./pages/Home/Home"; 
 import { Nosotros } from "./components/Nosotros/Nosotros";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
@@ -14,12 +14,12 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-    <CartProvider>
+      <CartProvider>
         <Header />
         <Nav />
         <Routes>
           {/* Home */}
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={<Home />} />
 
           {/* Sección Nosotros */}
           <Route path="/nosotros" element={<Nosotros />} />
@@ -41,12 +41,14 @@ function App() {
           <Route path="/contacto" element={<ContactForm />} />
         </Routes>
         <Footer />
-    </CartProvider>
+      </CartProvider>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+
 
 
 
