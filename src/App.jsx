@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import { Nav } from "./components/Nav/Nav";
 import { Home } from "./components/Home/Home"; 
-import { Nosotros } from "./components/Nosotros/Nosotros";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { Footer } from "./components/Footer/Footer";
@@ -20,9 +19,6 @@ function App() {
         <Routes>
           {/* Home */}
           <Route path="/" element={<Home />} />
-
-          {/* Sección Nosotros */}
-          <Route path="/nosotros" element={<Nosotros />} />
 
           {/* Perfumes */}
           <Route
