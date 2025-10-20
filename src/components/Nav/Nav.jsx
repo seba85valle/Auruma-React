@@ -27,9 +27,6 @@ export const Nav = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/nosotros">Nosotros</Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" to="/perfumes">Perfumes</Link>
             </li>
             <li className="nav-item">
