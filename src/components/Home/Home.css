@@ -70,27 +70,55 @@
   color: #f1f1f1;
 }
 
-/* ====================== NOSOTROS ====================== */
+/* ====================== NOSOTROS (mejorada) ====================== */
 .home-about {
-  background: #fff;
+  background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
   padding: 64px 0;
+  text-align: center;
+}
+
+.home-about h2 {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  animation: fadeUp 0.7s ease-out forwards;
+}
+
+.home-about h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: shimmer 2.5s infinite linear;
 }
 
 .home-about .lead {
   font-size: 1.25rem;
   color: #555;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease-out 0.15s forwards;
 }
 
-.home-about__text {
+.home-about p {
   color: var(--text);
   font-size: 1rem;
   line-height: 1.75;
-  text-align: center;
   max-width: 900px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease-out 0.25s forwards;
 }
 
-/* ====================== SERVICIOS ====================== */
+/* ====================== SERVICIOS (versión original) ====================== */
 .home-services {
   position: relative;
   padding: 72px 0;
@@ -98,7 +126,7 @@
   background-image: url('/images/perfume_fondo.jpg');
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed; /* 💫 FONDO FIJO */
+  background-attachment: fixed;
   will-change: background-position;
   overflow: hidden;
 }
@@ -122,7 +150,7 @@
   gap: 24px;
 }
 
-/* ====================== CARD ====================== */
+/* Card */
 .card.servicio-card {
   background: #fff;
   color: #000;
@@ -130,26 +158,15 @@
   border-radius: 16px;
   padding: 28px;
   text-align: center;
-  transition: transform .4s ease, box-shadow .4s ease, background .4s ease;
+  transition: transform .5s ease, box-shadow .5s ease, background .5s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
   backdrop-filter: blur(3px);
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all .7s ease-out;
-}
-
-.card.servicio-card.in-view {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .card.servicio-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, .18), 0 0 25px rgba(193, 164, 95, 0.4);
-  background: linear-gradient(145deg, #fff 0%, #f8f8f8 80%, var(--gold) 100%);
-  border: 1px solid rgba(193, 164, 95, 0.5);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .18);
+  background: linear-gradient(145deg, #fff, #f8f8f8);
 }
 
 .card__icon {
@@ -230,9 +247,9 @@
   transform: translateY(40px) scale(0.99);
   filter: blur(6px);
   transition:
-    opacity 0.7s ease-out,
-    transform 0.7s cubic-bezier(0.19, 1, 0.22, 1),
-    filter 0.8s ease-out;
+    opacity 0.6s ease-out,
+    transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+    filter 0.6s ease-out;
 }
 
 [data-reveal].in-view {
@@ -244,6 +261,11 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(1.05); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes shimmer {
