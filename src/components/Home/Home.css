@@ -54,7 +54,6 @@
   position: relative;
 }
 
-/* Línea dorada animada debajo del título */
 .home-hero__title::after {
   content: "";
   display: block;
@@ -73,36 +72,17 @@
 
 /* ====================== NOSOTROS ====================== */
 .home-about {
-  position: relative;
+  background: #fff;
   padding: 64px 0;
-  background-image: url('/images/about-bg.jpg'); /* Fondo con efecto parallax */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* 💫 Parallax */
-  color: #fff;
-  overflow: hidden;
-}
-
-.home-about::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(2px);
-}
-
-.home-about .container {
-  position: relative;
-  z-index: 1;
 }
 
 .home-about .lead {
   font-size: 1.25rem;
-  color: #f1f1f1;
+  color: #555;
 }
 
 .home-about__text {
-  color: #f5f5f5;
+  color: var(--text);
   font-size: 1rem;
   line-height: 1.75;
   text-align: center;
@@ -118,7 +98,7 @@
   background-image: url('/images/perfume_fondo.jpg');
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed;
+  background-attachment: fixed; /* 💫 FONDO FIJO */
   will-change: background-position;
   overflow: hidden;
 }
@@ -150,11 +130,19 @@
   border-radius: 16px;
   padding: 28px;
   text-align: center;
-  transition: transform .5s ease, box-shadow .5s ease, background .5s ease;
+  transition: transform .4s ease, box-shadow .4s ease, background .4s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
   backdrop-filter: blur(3px);
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all .7s ease-out;
+}
+
+.card.servicio-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card.servicio-card:hover {
@@ -162,21 +150,6 @@
   box-shadow: 0 18px 36px rgba(0, 0, 0, .18), 0 0 25px rgba(193, 164, 95, 0.4);
   background: linear-gradient(145deg, #fff 0%, #f8f8f8 80%, var(--gold) 100%);
   border: 1px solid rgba(193, 164, 95, 0.5);
-}
-
-/* Brillo pulsante dorado sutil */
-.card.servicio-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(193, 164, 95, 0.15), transparent 60%);
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.card.servicio-card:hover::after {
-  opacity: 1;
-  animation: glow 3s ease-in-out infinite alternate;
 }
 
 .card__icon {
@@ -254,25 +227,18 @@
 /* ====================== ANIMACIONES ====================== */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(60px) scale(0.98);
-  filter: blur(8px);
+  transform: translateY(40px) scale(0.99);
+  filter: blur(6px);
   transition:
-    opacity 1s ease-out,
-    transform 1s cubic-bezier(0.19, 1, 0.22, 1),
-    filter 1.2s ease-out;
-  will-change: opacity, transform, filter;
+    opacity 0.7s ease-out,
+    transform 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+    filter 0.8s ease-out;
 }
 
 [data-reveal].in-view {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
-}
-
-/* Keyframes */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -284,11 +250,6 @@
   0% { opacity: 0.3; transform: scaleX(0.8); }
   50% { opacity: 1; transform: scaleX(1); }
   100% { opacity: 0.3; transform: scaleX(0.8); }
-}
-
-@keyframes glow {
-  from { opacity: 0.2; }
-  to { opacity: 0.6; }
 }
 
 /* ====================== RESPONSIVE ====================== */
@@ -307,19 +268,3 @@
 @supports (-webkit-touch-callout: none) {
   .home-services { background-attachment: scroll; }
 }
-
- 
-  
-
-
-  
- 
- 
-
-
-
-
-
-
- 
- 
