@@ -1,24 +1,6 @@
-import { useEffect } from "react";
 import "./Home.css";
 
 export const Home = () => {
-  useEffect(() => {
-    const els = document.querySelectorAll("[data-reveal]");
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in-view");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
   return (
     <main className="home">
       {/* HERO */}
@@ -26,14 +8,16 @@ export const Home = () => {
         <div className="home-hero__overlay" />
         <div className="container home-hero__content">
           <h1 className="home-hero__title">Descubrí el arte de perfumarte</h1>
-          <p className="home-hero__subtitle">Fragancias únicas para momentos inolvidables</p>
+          <p className="home-hero__subtitle">
+            Fragancias únicas para momentos inolvidables
+          </p>
         </div>
       </section>
 
       {/* NOSOTROS */}
-      <section className="home-about" data-reveal>
+      <section className="home-about">
         <div className="container">
-          <div className="home-about__text">
+          <div className="home-about__text reveal">
             <p className="lead">
               Desde <strong>AURUMA</strong> te acercamos perfumes exclusivos que evocan emociones y recuerdos,
               porque cada fragancia tiene una historia que contar.
@@ -49,10 +33,10 @@ export const Home = () => {
       </section>
 
       {/* SERVICIOS */}
-      <section className="home-services" data-reveal>
+      <section className="home-services">
         <div className="home-services__overlay" />
         <div className="container">
-          <div className="cards">
+          <div className="cards reveal">
             {/* Card 1 */}
             <article className="card servicio-card">
               <div className="card__icon">
@@ -64,11 +48,10 @@ export const Home = () => {
                 represente tu estilo.
               </p>
               <div className="card__badges">
-                <span className="badge bg-dark text-white">Aroma exclusivo</span>
-                <span className="badge bg-dark text-white">Asesoramiento 1 a 1</span>
+                <span className="badge">Aroma exclusivo</span>
+                <span className="badge">Asesoramiento 1 a 1</span>
               </div>
             </article>
-
             {/* Card 2 */}
             <article className="card servicio-card">
               <div className="card__icon">
@@ -79,11 +62,10 @@ export const Home = () => {
                 Probá nuestras fragancias antes de elegir y descubrí aromas que se adapten a tu personalidad.
               </p>
               <div className="card__badges">
-                <span className="badge bg-dark text-white">Prueba previa</span>
-                <span className="badge bg-dark text-white">Ajuste personal</span>
+                <span className="badge">Prueba previa</span>
+                <span className="badge">Ajuste personal</span>
               </div>
             </article>
-
             {/* Card 3 */}
             <article className="card servicio-card">
               <div className="card__icon">
@@ -94,8 +76,8 @@ export const Home = () => {
                 Cada producto se entrega cuidadosamente presentado, ideal para regalar o disfrutar con estilo y elegancia.
               </p>
               <div className="card__badges">
-                <span className="badge bg-dark text-white">Packaging elegante</span>
-                <span className="badge bg-dark text-white">Listo para regalo</span>
+                <span className="badge">Packaging elegante</span>
+                <span className="badge">Listo para regalo</span>
               </div>
             </article>
           </div>
@@ -103,24 +85,22 @@ export const Home = () => {
       </section>
 
       {/* VIDEOS */}
-      <section className="home-videos" data-reveal>
+      <section className="home-videos">
         <div className="container videos-grid">
           <div className="video">
             <iframe
               src="https://www.youtube.com/embed/9As3CYh7dkU?si=U0anExQFNfB-dv0r"
               title="Fragancias 1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
           <div className="video">
             <iframe
               src="https://www.youtube.com/embed/MnQ-ghUd4z8?si=uNziwJ-iDtnToxe0"
               title="Fragancias 2"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
         </div>
