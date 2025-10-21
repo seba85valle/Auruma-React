@@ -3,11 +3,10 @@
   --body-font: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   --text-dark: #111;
   --text: #333;
+  --gold: #c1a45f;
 }
 
-.home {
-  font-family: var(--body-font);
-}
+.home { font-family: var(--body-font); }
 
 .container {
   max-width: 1100px;
@@ -51,6 +50,7 @@
   font-size: clamp(2.2rem, 3.6vw, 3rem);
   margin: 0 0 .75rem;
   letter-spacing: 1px;
+  color: var(--gold);
 }
 
 .home-hero__subtitle {
@@ -61,7 +61,7 @@
 
 /* ====================== NOSOTROS ====================== */
 .home-about {
-  background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
+  background: #fff;
   padding: 64px 0;
 }
 
@@ -77,6 +77,14 @@
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+[data-reveal].in-view .home-about__text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ====================== SERVICIOS ====================== */
@@ -84,16 +92,20 @@
   position: relative;
   padding: 72px 0;
   color: #fff;
+  overflow: hidden;
+}
+
+.home-services::before {
+  content: '';
+  position: fixed; /* fondo fijo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('/images/perfume_fondo.jpg');
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed; /* fondo fijo */
-}
-
-.home-services__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
+  z-index: -1;
 }
 
 .home-services .container {
@@ -113,27 +125,27 @@
   background: #fff;
   color: #000;
   border: none;
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 16px;
+  padding: 28px;
   text-align: center;
   transition: transform .4s ease, box-shadow .4s ease, background .4s ease;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
 }
 
 .card.servicio-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 16px 28px rgba(0, 0, 0, .12);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .18);
   background: linear-gradient(145deg, #fff, #f8f8f8);
 }
 
 .card__icon {
-  font-size: 2.5rem;
-  color: #000;
+  font-size: 2.6rem;
+  color: var(--gold);
   margin-bottom: 10px;
 }
 
 .card__title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin: 12px 0 8px;
   font-family: var(--heading-font);
@@ -161,7 +173,7 @@
 }
 
 .card__badges .badge:hover {
-  background: #c1a45f;
+  background: var(--gold);
 }
 
 /* ====================== VIDEOS ====================== */
@@ -186,52 +198,38 @@
   transition: transform .4s ease;
 }
 
-.video:hover {
-  transform: scale(1.02);
-}
+.video:hover { transform: scale(1.02); }
 
-.video iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 /* ====================== ANIMACIONES ====================== */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(60px) scale(0.98);
+  transform: translateY(50px);
   filter: blur(8px);
   transition:
-    opacity 0.8s ease-out,
-    transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
-    filter 0.9s ease-out;
+    opacity 0.6s ease-out,
+    transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+    filter 0.8s ease-out;
   will-change: opacity, transform, filter;
 }
 
 [data-reveal].in-view {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   filter: blur(0);
 }
 
 [data-reveal].in-view h2,
 [data-reveal].in-view h3,
 [data-reveal].in-view p {
-  animation: fadeUp 0.8s ease-out both;
+  animation: fadeUp 0.6s ease-out both;
 }
 
 /* Keyframes */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -242,7 +240,7 @@
 /* ====================== RESPONSIVE ====================== */
 @media (max-width: 992px) {
   .cards { grid-template-columns: 1fr; }
-  .card.servicio-card { padding: 20px; }
+  .card.servicio-card { padding: 22px; }
   .card__icon { font-size: 2.2rem; }
   .card__title { font-size: 1.15rem; }
   .card__text { font-size: .96rem; }
@@ -253,6 +251,5 @@
 }
 
 @supports (-webkit-touch-callout: none) {
-  /* Para navegadores iOS: se asegura que no rompa el efecto parallax */
   .home-services { background-attachment: scroll; }
 }
