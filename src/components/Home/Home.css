@@ -3,8 +3,10 @@
   --body-font: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   --text-dark: #111;
   --text: #333;
+  --gold: #c1a45f;
 }
 
+/* ====================== BASE ====================== */
 .home { font-family: var(--body-font); }
 
 .container {
@@ -49,6 +51,18 @@
   font-size: clamp(2.2rem, 3.6vw, 3rem);
   margin: 0 0 .75rem;
   letter-spacing: 1px;
+  position: relative;
+}
+
+/* Línea dorada animada debajo del título */
+.home-hero__title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 12px auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  animation: shimmer 2.5s infinite linear;
 }
 
 .home-hero__subtitle {
@@ -59,17 +73,36 @@
 
 /* ====================== NOSOTROS ====================== */
 .home-about {
-  background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
+  position: relative;
   padding: 64px 0;
+  background-image: url('/images/about-bg.jpg'); /* Fondo con efecto parallax */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* 💫 Parallax */
+  color: #fff;
+  overflow: hidden;
+}
+
+.home-about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+}
+
+.home-about .container {
+  position: relative;
+  z-index: 1;
 }
 
 .home-about .lead {
   font-size: 1.25rem;
-  color: #555;
+  color: #f1f1f1;
 }
 
 .home-about__text {
-  color: var(--text);
+  color: #f5f5f5;
   font-size: 1rem;
   line-height: 1.75;
   text-align: center;
@@ -109,7 +142,7 @@
   gap: 24px;
 }
 
-/* Card */
+/* ====================== CARD ====================== */
 .card.servicio-card {
   background: #fff;
   color: #000;
@@ -120,12 +153,30 @@
   transition: transform .5s ease, box-shadow .5s ease, background .5s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
   backdrop-filter: blur(3px);
+  position: relative;
+  overflow: hidden;
 }
 
 .card.servicio-card:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, .18);
-  background: linear-gradient(145deg, #fff, #f8f8f8);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .18), 0 0 25px rgba(193, 164, 95, 0.4);
+  background: linear-gradient(145deg, #fff 0%, #f8f8f8 80%, var(--gold) 100%);
+  border: 1px solid rgba(193, 164, 95, 0.5);
+}
+
+/* Brillo pulsante dorado sutil */
+.card.servicio-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(193, 164, 95, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.card.servicio-card:hover::after {
+  opacity: 1;
+  animation: glow 3s ease-in-out infinite alternate;
 }
 
 .card__icon {
@@ -163,7 +214,7 @@
 }
 
 .card__badges .badge:hover {
-  background: #c1a45f;
+  background: var(--gold);
 }
 
 /* ====================== VIDEOS ====================== */
@@ -218,29 +269,26 @@
   filter: blur(0);
 }
 
-/* Animaciones para títulos y textos */
-[data-reveal].in-view h2,
-[data-reveal].in-view h3,
-[data-reveal].in-view p {
-  animation: fadeUp 1s ease-out both;
-}
-
 /* Keyframes */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hero fade */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(1.05); }
   to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.3; transform: scaleX(0.8); }
+  50% { opacity: 1; transform: scaleX(1); }
+  100% { opacity: 0.3; transform: scaleX(0.8); }
+}
+
+@keyframes glow {
+  from { opacity: 0.2; }
+  to { opacity: 0.6; }
 }
 
 /* ====================== RESPONSIVE ====================== */
@@ -259,3 +307,19 @@
 @supports (-webkit-touch-callout: none) {
   .home-services { background-attachment: scroll; }
 }
+
+ 
+  
+
+
+  
+ 
+ 
+
+
+
+
+
+
+ 
+ 
