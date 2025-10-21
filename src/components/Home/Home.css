@@ -62,7 +62,7 @@
 
 /* ====================== NOSOTROS ====================== */
 .home-about {
-  background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
+  background: #fff;
   padding: 64px 0;
 }
 
@@ -78,9 +78,11 @@
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
 }
 
 /* ====================== SERVICIOS ====================== */
@@ -105,40 +107,39 @@
   z-index: 1;
 }
 
+/* Grid de cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease-out forwards;
-  animation-delay: 0.3s;
 }
 
+/* Card */
 .card.servicio-card {
   background: #fff;
   color: #000;
   border: none;
-  border-radius: 12px;
-  padding: 24px;
+  border-radius: 16px;
+  padding: 28px;
   text-align: center;
-  transition: transform .3s ease, box-shadow .3s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: transform .5s ease, box-shadow .5s ease, background .5s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
 }
 
 .card.servicio-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 28px rgba(0,0,0,.12);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .18);
+  background: linear-gradient(145deg, #fff, #f8f8f8);
 }
 
 .card__icon {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: var(--gold);
   margin-bottom: 10px;
 }
 
 .card__title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin: 12px 0 8px;
   font-family: var(--heading-font);
@@ -147,6 +148,7 @@
 .card__text {
   font-size: .98rem;
   color: #333;
+  line-height: 1.6;
 }
 
 .card__badges {
@@ -171,7 +173,85 @@
 /* ====================== VIDEOS ====================== */
 .home-videos {
   background: #f8f9fa;
-  padding: 64px 
+  padding: 64px 0;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
+  transition: transform .4s ease;
+}
+
+.video:hover {
+  transform: scale(1.02);
+}
+
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ====================== ANIMACIONES ====================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .card.servicio-card {
+    padding: 22px;
+  }
+  .card__icon {
+    font-size: 2.2rem;
+  }
+  .card__title {
+    font-size: 1.15rem;
+  }
+  .card__text {
+    font-size: .96rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .videos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 
   
 
