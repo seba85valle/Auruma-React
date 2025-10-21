@@ -3,11 +3,11 @@
   --body-font: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   --text-dark: #111;
   --text: #333;
-  --gold: #c1a45f;
 }
 
-/* ====================== BASE ====================== */
-.home { font-family: var(--body-font); }
+.home {
+  font-family: var(--body-font);
+}
 
 .container {
   max-width: 1100px;
@@ -51,17 +51,6 @@
   font-size: clamp(2.2rem, 3.6vw, 3rem);
   margin: 0 0 .75rem;
   letter-spacing: 1px;
-  position: relative;
-}
-
-.home-hero__title::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin: 12px auto 0;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  animation: shimmer 2.5s infinite linear;
 }
 
 .home-hero__subtitle {
@@ -70,55 +59,27 @@
   color: #f1f1f1;
 }
 
-/* ====================== NOSOTROS (mejorada) ====================== */
+/* ====================== NOSOTROS ====================== */
 .home-about {
   background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
   padding: 64px 0;
-  text-align: center;
-}
-
-.home-about h2 {
-  font-family: var(--heading-font);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-  animation: fadeUp 0.7s ease-out forwards;
-}
-
-.home-about h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  margin: 10px auto 0;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  animation: shimmer 2.5s infinite linear;
 }
 
 .home-about .lead {
   font-size: 1.25rem;
   color: #555;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s ease-out 0.15s forwards;
 }
 
-.home-about p {
+.home-about__text {
   color: var(--text);
   font-size: 1rem;
   line-height: 1.75;
+  text-align: center;
   max-width: 900px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s ease-out 0.25s forwards;
 }
 
-/* ====================== SERVICIOS (versión original) ====================== */
+/* ====================== SERVICIOS ====================== */
 .home-services {
   position: relative;
   padding: 72px 0;
@@ -126,16 +87,13 @@
   background-image: url('/images/perfume_fondo.jpg');
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed;
-  will-change: background-position;
-  overflow: hidden;
+  background-attachment: fixed; /* fondo fijo */
 }
 
 .home-services__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .7);
-  backdrop-filter: blur(2px);
+  background: rgba(0,0,0,0.7);
 }
 
 .home-services .container {
@@ -155,28 +113,27 @@
   background: #fff;
   color: #000;
   border: none;
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 12px;
+  padding: 24px;
   text-align: center;
-  transition: transform .5s ease, box-shadow .5s ease, background .5s ease;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
-  backdrop-filter: blur(3px);
+  transition: transform .4s ease, box-shadow .4s ease, background .4s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
 }
 
 .card.servicio-card:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, .18);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, .12);
   background: linear-gradient(145deg, #fff, #f8f8f8);
 }
 
 .card__icon {
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   color: #000;
   margin-bottom: 10px;
 }
 
 .card__title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 12px 0 8px;
   font-family: var(--heading-font);
@@ -204,7 +161,7 @@
 }
 
 .card__badges .badge:hover {
-  background: var(--gold);
+  background: #c1a45f;
 }
 
 /* ====================== VIDEOS ====================== */
@@ -225,7 +182,7 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, .08);
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
   transition: transform .4s ease;
 }
 
@@ -244,12 +201,13 @@
 /* ====================== ANIMACIONES ====================== */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(40px) scale(0.99);
-  filter: blur(6px);
+  transform: translateY(60px) scale(0.98);
+  filter: blur(8px);
   transition:
-    opacity 0.6s ease-out,
-    transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
-    filter 0.6s ease-out;
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+    filter 0.9s ease-out;
+  will-change: opacity, transform, filter;
 }
 
 [data-reveal].in-view {
@@ -258,26 +216,33 @@
   filter: blur(0);
 }
 
+[data-reveal].in-view h2,
+[data-reveal].in-view h3,
+[data-reveal].in-view p {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(1.05); }
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shimmer {
-  0% { opacity: 0.3; transform: scaleX(0.8); }
-  50% { opacity: 1; transform: scaleX(1); }
-  100% { opacity: 0.3; transform: scaleX(0.8); }
-}
-
 /* ====================== RESPONSIVE ====================== */
 @media (max-width: 992px) {
   .cards { grid-template-columns: 1fr; }
-  .card.servicio-card { padding: 22px; }
+  .card.servicio-card { padding: 20px; }
   .card__icon { font-size: 2.2rem; }
   .card__title { font-size: 1.15rem; }
   .card__text { font-size: .96rem; }
@@ -288,5 +253,6 @@
 }
 
 @supports (-webkit-touch-callout: none) {
+  /* Para navegadores iOS: se asegura que no rompa el efecto parallax */
   .home-services { background-attachment: scroll; }
 }
