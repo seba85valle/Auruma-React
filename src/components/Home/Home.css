@@ -14,9 +14,9 @@
 .home-hero {
   position: relative;
   width: 100%;
-  height: 100vh;              /* como tu HTML */
+  height: 100vh;             
   min-height: 560px;
-  background: url('/images/hero.jpg') center center / cover no-repeat; /* misma composición */
+  background: url('/images/hero.jpg') center center / cover no-repeat; 
   color: #fff;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@
 .home-hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .50);   /* 0.50 como tu HTML */
+  background: rgba(0, 0, 0, .50);   
   backdrop-filter: blur(2.5px);
 }
 
@@ -41,7 +41,7 @@
 .home-hero__title {
   font-family: var(--heading-font);
   font-weight: 700;
-  font-size: clamp(2.2rem, 6vw, 3.2rem); /* escala similar al HTML */
+  font-size: clamp(2.2rem, 6vw, 3.2rem); 
   margin: 0 0 .75rem;
   letter-spacing: .5px;
   opacity: 0;
@@ -72,18 +72,11 @@
   color: var(--text);
   font-size: 1rem;
   line-height: 1.75;
-  text-align: center;        /* centrado como pediste */
+  text-align: center;
   max-width: 900px;
   margin: 0 auto;
-
-  /* reveal suave */
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.home-about__text.in-view {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1;             
+  transform: none;         
 }
 
 /* ====================== SERVICIOS ====================== */
@@ -91,7 +84,7 @@
   position: relative;
   padding: 72px 0;
   color: #fff;
-  background: url('/images/perfume_fondo.jpg') center center / cover no-repeat fixed; /* fondo fijo/parallax */
+  background: url('/images/perfume_fondo.jpg') center center / cover no-repeat fixed; 
 }
 
 .home-services__overlay {
@@ -213,7 +206,7 @@
 
 /* ====================== RESPONSIVE ====================== */
 @media (max-width: 992px) {
-  .cards { grid-template-columns: 1fr; }   /* una debajo de otra en móvil */
+  .cards { grid-template-columns: 1fr; }   
   .card.servicio-card { padding: 22px; }
   .card__icon { font-size: 2.2rem; }
   .card__title { font-size: 1.15rem; }
