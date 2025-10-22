@@ -26,13 +26,13 @@
   font-size: 1.2rem;
   font-weight: 600;
   color: #111;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem; 
 }
 
 .card-size {
   margin-top: -5px;
-  margin-bottom: 8px;
-  color: #6c757d;        /* gris suave */
+  margin-bottom: 0.5rem; 
+  color: #6c757d;        
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -59,6 +59,7 @@
   .producto-img {
     height: 200px;
   }
+
   .card-title {
     font-size: 1.1rem;
   }
@@ -68,6 +69,7 @@
   .producto-img {
     height: 180px;
   }
+
   .card-title {
     font-size: 1rem;
   }
