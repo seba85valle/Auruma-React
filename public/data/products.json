@@ -4,6 +4,7 @@
     "name": "Shine Blue",
     "price": 26000,
     "category": "femeninos",
+    "size": "100ml",
     "description": "Fresca y luminosa, combina notas de manzana y limón siciliano con un corazón floral de jazmín y bambú, sobre una base suave de ámbar y almizcle.",
     "imageUrl": "/images/shine.jpeg"
   },
@@ -12,6 +13,7 @@
     "name": "Oh My God",
     "price": 26000,
     "category": "femeninos",
+    "size": "100ml",
     "description": "Un exquisito aroma dulce y envolvente con salida de pera y pomelo, corazón floral de rosa y jazmín, y fondo cálido de vainilla y patchouli.",
     "imageUrl": "/images/mygod.jpeg"
   },
@@ -20,6 +22,7 @@
     "name": "Oh Darling",
     "price": 26000,
     "category": "femeninos",
+    "size": "100ml",
     "description": "Intensa y elegante, con notas iniciales de café y almendra, un corazón floral de jazmín y nardos, y fondo gourmand de cacao y vainilla.",
     "imageUrl": "/images/darling.jpeg"
   },
@@ -28,6 +31,7 @@
     "name": "She",
     "price": 26000,
     "category": "femeninos",
+    "size": "100ml",
     "description": "Moderna, vanguardista y delicada, mezcla jazmín y menta con un toque de vainilla y ámbar gris, sobre una base cremosa y suave de almizcle.",
     "imageUrl": "/images/she.jpeg"
   },
@@ -36,6 +40,7 @@
     "name": "Maria",
     "price": 26000,
     "category": "femeninos",
+    "size": "100ml",
     "description": "Refrescante y natural, une cítricos brillantes con un corazón floral de jazmín y petitgrain, sobre un fondo de almizcle blanco y maderas claras.",
     "imageUrl": "/images/maria.jpeg"
   },
@@ -44,6 +49,7 @@
     "name": "Only One",
     "price": 26000,
     "category": "masculinos",
+    "size": "100ml",
     "description": "Aroma especiado y elegante, con salida cítrica de bergamota, corazón de canela y lavanda, y fondo cálido de vainilla, sándalo y vetiver.",
     "imageUrl": "/images/onlyone.jpeg"
   },
@@ -52,6 +58,7 @@
     "name": "Épico",
     "price": 26000,
     "category": "masculinos",
+    "size": "100ml",
     "description": "Sofisticada, refinada y poderosa, con notas de lima y bergamota, corazón floral de rosa y orris, y fondo intenso de cuero, coco y patchouli.",
     "imageUrl": "/images/epico.jpeg"
   },
@@ -60,6 +67,7 @@
     "name": "He",
     "price": 26000,
     "category": "masculinos",
+    "size": "100ml",
     "description": "Vibrante y fresca, combina lima y menta con un corazón aromático de cardamomo y geranio, sobre un fondo amaderado de vetiver y ámbar.",
     "imageUrl": "/images/he.jpeg"
   },
@@ -68,6 +76,7 @@
     "name": "Pura",
     "price": 35000,
     "category": "unisex",
+    "size": "100ml",
     "description": "Luminosa y frutal, abre con cítricos y frutas tropicales, revelando un corazón dulce y jugoso, y cerrando con un fondo cálido de vainilla y ámbar.",
     "imageUrl": "/images/pura.jpeg"
   },
@@ -76,6 +85,7 @@
     "name": "Exodo",
     "price": 35000,
     "category": "unisex",
+    "size": "100ml",
     "description": "Profunda y sensual, con salida especiada de pimienta negra, corazón floral de lavanda y azahar, y base rica de sándalo, ámbar y almizcle.",
     "imageUrl": "/images/exodo.jpeg"
   },
@@ -84,6 +94,7 @@
     "name": "Woman In Black",
     "price": 33000,
     "category": "premium",
+    "size": "100ml",
     "description": "Oscura, enigmática y misteriosa, combina almendra y pimienta rosa con un corazón floral de violeta y cacao, y fondo sensual de vainilla y sándalo.",
     "imageUrl": "/images/womaninblack.webp"
   },
@@ -92,6 +103,7 @@
     "name": "Man In Black",
     "price": 33000,
     "category": "premium",
+    "size": "100ml",
     "description": "Intensa y audaz, abre con notas de ron y tabaco, desarrolla un corazón cálido de cuero e iris, y finaliza con un fondo ambarado y dulce.",
     "imageUrl": "/images/maninsblack.webp"
   },
@@ -100,6 +112,7 @@
     "name": "Perhaps Woman",
     "price": 30000,
     "category": "premium",
+    "size": "100ml",
     "description": "Sofisticada y envolvente, combina la frescura cítrica de naranja sanguina con un corazón floral de miel y jazmín, y un fondo dulce de pachuli y caramelo.",
     "imageUrl": "/images/perhaps.jpeg"
   }
