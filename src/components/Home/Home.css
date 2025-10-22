@@ -10,22 +10,13 @@
   font-family: var(--body-font);
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
 /* ====================== HERO ====================== */
 .home-hero {
   position: relative;
   width: 100%;
-  height: 100vh;              
+  height: 100vh;              /* como tu HTML */
   min-height: 560px;
-  background-image: url('/images/hero.jpg');
-  background-size: cover;     
-  background-position: center 38%; 
-  background-repeat: no-repeat;
+  background: url('/images/hero.jpg') center center / cover no-repeat; /* misma composición */
   color: #fff;
   display: flex;
   align-items: center;
@@ -37,32 +28,32 @@
 .home-hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .55);
-  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, .50);   /* 0.50 como tu HTML */
+  backdrop-filter: blur(2.5px);
 }
 
 .home-hero__content {
   position: relative;
   z-index: 1;
-  animation: fadeIn 2s ease-out forwards;
+  animation: fadeIn 1.2s ease-out forwards;
 }
 
 .home-hero__title {
   font-family: var(--heading-font);
   font-weight: 700;
-  font-size: clamp(2.2rem, 3.6vw, 3rem);
+  font-size: clamp(2.2rem, 6vw, 3.2rem); /* escala similar al HTML */
   margin: 0 0 .75rem;
-  letter-spacing: 1px;
+  letter-spacing: .5px;
   opacity: 0;
-  animation: fadeUp 1.4s ease-out .1s forwards;
+  animation: fadeUp 1.1s ease-out .05s forwards;
 }
 
 .home-hero__subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
   margin: 0;
   color: #f1f1f1;
   opacity: 0;
-  animation: fadeUp 1.6s ease-out .25s forwards;
+  animation: fadeUp 1.2s ease-out .2s forwards;
 }
 
 /* ====================== NOSOTROS ====================== */
@@ -74,24 +65,23 @@
 .home-about .lead {
   font-size: 1.25rem;
   color: #555;
+  margin-bottom: .75rem;
 }
 
 .home-about__text {
   color: var(--text);
   font-size: 1rem;
   line-height: 1.75;
-  text-align: center;
+  text-align: center;        /* centrado como pediste */
   max-width: 900px;
   margin: 0 auto;
-}
 
-.reveal {
+  /* reveal suave */
   opacity: 0;
   transform: translateY(30px);
   transition: opacity .7s ease, transform .7s ease;
 }
-
-.in-view {
+.home-about__text.in-view {
   opacity: 1;
   transform: translateY(0);
 }
@@ -101,16 +91,13 @@
   position: relative;
   padding: 72px 0;
   color: #fff;
-  background-image: url('/images/perfume_fondo.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed; 
+  background: url('/images/perfume_fondo.jpg') center center / cover no-repeat fixed; /* fondo fijo/parallax */
 }
 
 .home-services__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, .70);
 }
 
 .home-services .container {
@@ -118,14 +105,12 @@
   z-index: 1;
 }
 
-/* Grid de cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* Card */
 .card.servicio-card {
   background: #fff;
   color: #000;
@@ -133,8 +118,8 @@
   border-radius: 16px;
   padding: 28px;
   text-align: center;
-  transition: transform .5s ease, box-shadow .5s ease, background .5s ease;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+  transition: transform .5s ease, box-shadow .5s ease, background .5s ease;
 }
 
 .card.servicio-card:hover {
@@ -228,21 +213,15 @@
 
 /* ====================== RESPONSIVE ====================== */
 @media (max-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr;  
-  }
-  .card.servicio-card {
-    padding: 22px;
-  }
+  .cards { grid-template-columns: 1fr; }   /* una debajo de otra en móvil */
+  .card.servicio-card { padding: 22px; }
   .card__icon { font-size: 2.2rem; }
   .card__title { font-size: 1.15rem; }
   .card__text { font-size: .96rem; }
 }
 
 @media (min-width: 768px) {
-  .videos-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  .videos-grid { grid-template-columns: 1fr 1fr; }
 }
 
   
