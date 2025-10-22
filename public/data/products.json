@@ -94,5 +94,13 @@
     "category": "premium",
     "description": "Intensa y audaz, abre con notas de ron y tabaco, desarrolla un corazón cálido de cuero e iris, y finaliza con un fondo ambarado y dulce.",
     "imageUrl": "/images/maninsblack.webp"
+  },
+  {
+    "id": "13",
+    "name": "Perhaps Woman",
+    "price": 30000,
+    "category": "premium",
+    "description": "Sofisticada y envolvente, combina la frescura cítrica de naranja sanguina con un corazón floral de miel y jazmín, y un fondo dulce de pachuli y caramelo.",
+    "imageUrl": "/images/perhaps.jpeg"
   }
 ]
