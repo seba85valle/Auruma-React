@@ -217,6 +217,46 @@
   .videos-grid { grid-template-columns: 1fr 1fr; }
 }
 
+
+/* ======== Fix overflow lateral SOLO para Home ======== */
+
+/* Nada del Home se puede desbordar horizontalmente */
+.home,
+.home section,
+.home .container,
+.home .videos-grid {
+  overflow-x: hidden;
+}
+
+/* Si algún hijo escala (hover/animación), que no empuje el layout */
+.home * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Asegura que los iframes no causen 1–2px extra */
+.home .video iframe {
+  display: block;
+}
+
+/* Si en algún momento usás .row dentro de Home, anulá los márgenes negativos de Bootstrap */
+.home .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Por seguridad, evita que las cards “crezcan” hacia los lados con el hover */
+.home .cards {
+  overflow: hidden;
+  /* si querés que el hover no recorte sombra: comentá la línea de arriba */
+}
+
+/* Evita artefactos de redondeo en grids en algunos navegadores */
+.home .videos-grid,
+.home .cards {
+  transform: translateZ(0);
+}
+
   
 
 
