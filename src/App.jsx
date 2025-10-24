@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Header } from "./components/Header/Header";
 import { Nav } from "./components/Nav/Nav";
 import { Home } from "./components/Home/Home"; 
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
@@ -14,7 +13,6 @@ function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <Header />
         <Nav />
         <Routes>
           {/* Home */}
