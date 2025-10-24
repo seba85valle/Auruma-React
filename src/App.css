@@ -18,6 +18,7 @@ body {
   background-color: #fff;
   color: #000;
   overflow-x: hidden;
+  padding-top: 90px; 
 }
 
 header, nav, main, footer {
