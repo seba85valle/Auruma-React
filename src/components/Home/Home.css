@@ -17,9 +17,8 @@
   height: 100vh;             
   min-height: 560px;
   background: url('/images/hero.jpg') center center / cover no-repeat; 
-  background-attachment: fixed; 
-  image-rendering: -webkit-optimize-contrast; 
-  image-rendering: crisp-edges;
+  background-attachment: fixed; /* mejora la percepción de nitidez (efecto profundidad) */
+  filter: brightness(1.05) contrast(1.05); /* realza detalle y color sin afectar overlay */
   color: #fff;
   display: flex;
   align-items: center;
@@ -31,8 +30,8 @@
 .home-hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .50);   
-  backdrop-filter: blur(2.5px);
+  background: rgba(0, 0, 0, .45); /* leve ajuste para mostrar más la imagen */
+  backdrop-filter: blur(2px); /* un poco menos de blur para no perder detalle */
 }
 
 .home-hero__content {
@@ -58,6 +57,7 @@
   opacity: 0;
   animation: fadeUp 1.2s ease-out .2s forwards;
 }
+
 
 /* ====================== NOSOTROS ====================== */
 .home-about {
