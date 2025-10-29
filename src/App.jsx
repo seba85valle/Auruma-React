@@ -30,7 +30,10 @@ function App() {
 
           {/* Detalle de producto */}
           <Route path="/detail/:id" element={<ItemDetailContainer />} />
-
+          
+          {/* Carrito */}
+          <Route path="/carrito" element={<h1>Carrito</h1>} />
+        
           {/* Contacto */}
           <Route path="/contacto" element={<ContactForm />} />
         </Routes>
