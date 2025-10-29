@@ -6,6 +6,7 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetail
 import { Footer } from "./components/Footer/Footer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
 import { CartProvider } from "./context/CartContext/CartProvider";
+import { Cart } from "./components/Cart/Cart";
 
 import "./App.css";
 
@@ -32,7 +33,7 @@ function App() {
           <Route path="/detail/:id" element={<ItemDetailContainer />} />
           
           {/* Carrito */}
-          <Route path="/carrito" element={<h1>Carrito</h1>} />
+          <Route path="/carrito" element={<Cart />} />
         
           {/* Contacto */}
           <Route path="/contacto" element={<ContactForm />} />
