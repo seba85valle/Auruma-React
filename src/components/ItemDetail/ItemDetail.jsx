@@ -67,7 +67,7 @@ export const ItemDetail = ({ detail }) => {
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content auruma-modal">
             <div className="modal-header border-0">
-              <h5 className="modal-title">
+              <h5 className="modal-title text-center w-100">
                 Producto agregado
               </h5>
               <button
@@ -78,38 +78,29 @@ export const ItemDetail = ({ detail }) => {
               ></button>
             </div>
 
-            <div className="modal-body">
-              <div className="modal-product">
-                <img
-                  src={detail.imageUrl}
-                  alt={detail.name}
-                  className="modal-product-img"
-                />
-                <div className="modal-product-info">
-                  <p className="modal-product-name">{detail.name}</p>
-                  {detail.size && (
-                    <p className="modal-product-size">{detail.size}</p>
+            <div className="modal-body text-center">
+              <p className="modal-product-name">{detail.name}</p>
+              {detail.size && (
+                <p className="modal-product-size">{detail.size}</p>
+              )}
+              <p className="modal-product-qty">
+                Cantidad: <strong>{quantityAdded}</strong>
+              </p>
+              <p className="modal-product-sub">
+                Subtotal:{" "}
+                <strong>
+                  $
+                  {(Number(detail.price || 0) * quantityAdded).toLocaleString(
+                    "es-AR"
                   )}
-                  <p className="modal-product-qty">
-                    Cantidad: <strong>{quantityAdded}</strong>
-                  </p>
-                  <p className="modal-product-sub">
-                    Subtotal:{" "}
-                    <strong>
-                      $
-                      {(Number(detail.price || 0) * quantityAdded).toLocaleString(
-                        "es-AR"
-                      )}
-                    </strong>
-                  </p>
-                </div>
-              </div>
+                </strong>
+              </p>
             </div>
 
-            <div className="modal-footer border-0">
+            <div className="modal-footer border-0 justify-content-center">
               <Link
                 to="/perfumes"
-                className="btn btn-outline-dark auruma-btn-light"
+                className="auruma-btn-dark"
                 onClick={() => {
                   const modalEl = document.getElementById("addedModal");
                   const modal = window.bootstrap.Modal.getInstance(modalEl);
@@ -121,7 +112,7 @@ export const ItemDetail = ({ detail }) => {
 
               <button
                 type="button"
-                className="btn auruma-btn-dark"
+                className="auruma-btn-dark"
                 onClick={handleGoToCart}
               >
                 Ir al carrito
@@ -133,4 +124,5 @@ export const ItemDetail = ({ detail }) => {
     </div>
   );
 };
+
 
