@@ -7,7 +7,7 @@ export const Cart = () => {
   if (cart.length === 0) {
     return (
       <div className="cart-empty fade-in">
-        <h2>Tu carrito está vacío 🛍️</h2>
+        <h2>Tu carrito está vacío</h2>
         <p>Agregá tus fragancias favoritas para continuar tu experiencia AURUMA.</p>
       </div>
     );
