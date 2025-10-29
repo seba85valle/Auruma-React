@@ -9,19 +9,21 @@ export const CartProvider = ({ children }) => {
 
   // Agregar producto (sumar cantidades si ya existe)
   const addItem = (item) => {
+    const quantity = Number(item.quantity) || 1; // siempre asegura número válido
+
     if (exists(item.id)) {
       const updatedCart = cart.map((prod) => {
         if (prod.id === item.id) {
-          return { ...prod, quantity: prod.quantity + item.quantity };
+          return { ...prod, quantity: prod.quantity + quantity };
         } else {
           return prod;
         }
       });
       setCart(updatedCart);
-      alert("Agregado al carrito");
+      alert("Cantidad actualizada en el carrito");
     } else {
-      setCart([...cart, item]);
-      alert(`${item.name} agregado`);
+      setCart([...cart, { ...item, quantity }]);
+      alert(`${item.name} agregado al carrito`);
     }
   };
 
@@ -38,19 +40,21 @@ export const CartProvider = ({ children }) => {
     alert("Carrito vaciado");
   };
 
-  // Calcular total de ítems
+  // Calcular total de ítems (sumar cantidades)
   const getTotalItems = () => {
-    const totalItems = cart.reduce((acc, p) => acc + p.quantity, 0);
-    return totalItems;
+    return cart.reduce((total, p) => total + (p.quantity || 1), 0);
   };
 
   // Calcular total en dinero
   const total = () => {
-    const total = cart.reduce((acc, p) => acc + p.price * p.quantity, 0);
+    const total = cart.reduce(
+      (acc, p) => acc + p.price * (p.quantity || 1),
+      0
+    );
     return Math.round(total * 100) / 100;
   };
 
-  // Simular finalización de compra
+  // Finalizar compra
   const checkout = () => {
     const ok = confirm("¿Seguro que quiere finalizar la compra?");
     if (ok) {
