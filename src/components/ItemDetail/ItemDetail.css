@@ -25,7 +25,7 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* Imagen */
+/* ====== Imagen ====== */
 .item-detail-image {
   flex: 1.1;
   display: flex;
@@ -54,6 +54,7 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
+/* ====== Info producto ====== */
 .item-detail-info {
   flex: 1.2;
   padding: 2rem 2.5rem;
@@ -72,7 +73,7 @@
 
 .item-detail-size {
   font-size: 0.95rem;
-  color: #6b7280; /* gris suave */
+  color: #6b7280;
   margin-bottom: 0.6rem;
 }
 
@@ -90,9 +91,10 @@
   margin-bottom: 1.2rem;
 }
 
+/* ====== Botón principal ====== */
 .btn-agregar {
   background: linear-gradient(135deg, #b22222, #8b0000);
-  color: #fff !important;                 
+  color: #fff !important;
   border: none;
   padding: 0.8rem 1.8rem;
   border-radius: 30px;
@@ -106,11 +108,12 @@
 .btn-agregar:hover,
 .btn-agregar:focus {
   background: linear-gradient(135deg, #cc2e2e, #a01717);
-  color: #fff !important;                 
+  color: #fff !important;
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
 }
 
+/* ====== Descripción ====== */
 .descripcion-detalle {
   margin-top: 3rem;
   background: #ffffff;
@@ -132,7 +135,7 @@
   text-align: center;
 }
 
-/* Animaciones */
+/* ====== Animaciones ====== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -143,40 +146,53 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ====== Responsive ====== */
 @media (max-width: 900px) {
   .item-detail-horizontal {
     flex-direction: column;
     max-width: 95%;
   }
+
   .item-detail-image {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
+
   .item-detail-info {
     padding: 1.5rem;
     align-items: center;
     text-align: center;
   }
+
   .btn-agregar {
     align-self: center;
   }
 }
 
+/* ====== Modal AURUMA ====== */
 .auruma-modal {
   border-radius: 16px;
-  box-shadow: 0 18px 48px rgba(0,0,0,.22);
-  overflow: hidden;
+  background: #fffaf5; /* Fondo claro */
+  color: #111;
+  border: 2px solid #c1a45f; /* Dorado suave */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.auruma-modal .modal-header {
+  border-bottom: 1px solid rgba(193, 164, 95, 0.4);
 }
 
 .auruma-modal .modal-title {
+  font-family: "Playfair Display", serif;
   font-weight: 700;
-  letter-spacing: .3px;
+  color: #8b0000;
+  letter-spacing: 0.5px;
 }
 
 .modal-product {
   display: flex;
-  gap: 14px;
   align-items: center;
+  gap: 14px;
 }
 
 .modal-product-img {
@@ -184,27 +200,54 @@
   height: 72px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 2px solid #c1a45f;
 }
 
-.modal-product-info {
-  display: grid;
-  gap: 2px;
+.modal-product-info p {
+  margin: 0;
 }
 
 .modal-product-name {
   font-weight: 600;
-  margin: 0;
+  color: #111;
 }
 
 .modal-product-size {
-  margin: 0;
-  color: #6b7280;
-  font-size: .95rem;
+  color: #555;
+  font-size: 0.95rem;
 }
 
-.modal-product-qty,
-.modal-product-sub {
-  margin: 0;
+.modal-product-qty strong,
+.modal-product-sub strong {
+  color: #8b0000;
 }
+
+/* ====== Botones del modal ====== */
+.auruma-btn-light {
+  background-color: #fff;
+  border: 1px solid #c1a45f;
+  color: #111 !important;
+  transition: all 0.3s ease;
+}
+
+.auruma-btn-light:hover {
+  background-color: #f8f0e2;
+  color: #8b0000 !important;
+  transform: translateY(-2px);
+}
+
+.auruma-btn-dark {
+  background: linear-gradient(135deg, #b22222, #8b0000);
+  color: #fff !important;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.auruma-btn-dark:hover {
+  background: linear-gradient(135deg, #cc2e2e, #a01717);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
+}
+
 
