@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./ItemDetail.css";
 import { useCartContext } from "../../context/CartContext/useCartContext";
 import { Count } from "../Count/Count";
@@ -7,10 +7,10 @@ import { Count } from "../Count/Count";
 export const ItemDetail = ({ detail }) => {
   const { addItem } = useCartContext();
   const [quantityAdded, setQuantityAdded] = useState(0);
+  const navigate = useNavigate();
 
   const handleAdd = (quantity) => {
     addItem({ ...detail, quantity });
-
     setQuantityAdded(quantity);
 
     const modalEl = document.getElementById("addedModal");
@@ -18,6 +18,13 @@ export const ItemDetail = ({ detail }) => {
       const modal = new window.bootstrap.Modal(modalEl);
       modal.show();
     }
+  };
+
+  const handleGoToCart = () => {
+    const modalEl = document.getElementById("addedModal");
+    const modal = window.bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+    navigate("/carrito");
   };
 
   return (
@@ -34,14 +41,11 @@ export const ItemDetail = ({ detail }) => {
         <div className="item-detail-info">
           <h2 className="item-detail-title">{detail.name}</h2>
           {detail.size && <p className="item-detail-size">{detail.size}</p>}
-
           <p className="item-detail-price">
             ${Number(detail.price || 0).toLocaleString("es-AR")}
           </p>
-
           <p className="item-detail-short">{detail.description}</p>
 
-          {/* Contador + botón */}
           <Count btnText="Agregar al carrito" onConfirm={handleAdd} />
         </div>
       </div>
@@ -53,7 +57,7 @@ export const ItemDetail = ({ detail }) => {
         </div>
       )}
 
-      {/* Modal de agregado */}
+      {/* Modal AURUMA */}
       <div
         className="modal fade"
         id="addedModal"
@@ -64,7 +68,7 @@ export const ItemDetail = ({ detail }) => {
           <div className="modal-content auruma-modal">
             <div className="modal-header border-0">
               <h5 className="modal-title">
-                Producto agregado 🛍️
+                Producto agregado
               </h5>
               <button
                 type="button"
@@ -103,21 +107,30 @@ export const ItemDetail = ({ detail }) => {
             </div>
 
             <div className="modal-footer border-0">
-              <button
-                type="button"
-                className="btn btn-outline-dark"
-                data-bs-dismiss="modal"
+              <Link
+                to="/perfumes"
+                className="btn btn-outline-dark auruma-btn-light"
+                onClick={() => {
+                  const modalEl = document.getElementById("addedModal");
+                  const modal = window.bootstrap.Modal.getInstance(modalEl);
+                  if (modal) modal.hide();
+                }}
               >
                 Seguir comprando
-              </button>
-              <Link to="/carrito" className="btn btn-dark">
-                Ir al carrito
               </Link>
+
+              <button
+                type="button"
+                className="btn auruma-btn-dark"
+                onClick={handleGoToCart}
+              >
+                Ir al carrito
+              </button>
             </div>
           </div>
         </div>
       </div>
-      {/* /Modal */}
     </div>
   );
 };
+
