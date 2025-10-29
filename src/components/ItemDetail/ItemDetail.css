@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3rem 2rem; 
+  padding: 3rem 2rem;
   min-height: 90vh;
   background: linear-gradient(180deg, #f3f3f3 0%, #ffffff 100%);
   animation: fadeIn 0.6s ease;
@@ -50,14 +50,8 @@
 }
 
 @keyframes fadeZoomIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 .item-detail-info {
@@ -71,16 +65,15 @@
 .item-detail-title {
   font-size: 2rem;
   color: #222;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.item-detail-brand {
-  font-size: 1.1rem;
-  color: #b22222;
-  font-weight: 500;
-  margin-bottom: 1rem;
+.item-detail-size {
+  font-size: 0.95rem;
+  color: #6b7280; /* gris suave */
+  margin-bottom: 0.6rem;
 }
 
 .item-detail-price {
@@ -94,13 +87,13 @@
   color: #555;
   font-size: 1.05rem;
   line-height: 1.7;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.2rem;
 }
 
-/* Botón */
+/* Botón principal (si lo usás) */
 .btn-agregar {
   background: linear-gradient(135deg, #b22222, #8b0000);
-  color: #fff;
+  color: #fff !important;                 
   border: none;
   padding: 0.8rem 1.8rem;
   border-radius: 30px;
@@ -111,12 +104,15 @@
   align-self: start;
 }
 
-.btn-agregar:hover {
+.btn-agregar:hover,
+.btn-agregar:focus {
   background: linear-gradient(135deg, #cc2e2e, #a01717);
+  color: #fff !important;                 
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
 }
 
+/* Descripción extendida */
 .descripcion-detalle {
   margin-top: 3rem;
   background: #ffffff;
@@ -138,26 +134,15 @@
   text-align: center;
 }
 
+/* Animaciones */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 900px) {
@@ -165,19 +150,64 @@
     flex-direction: column;
     max-width: 95%;
   }
-
   .item-detail-image {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
-
   .item-detail-info {
     padding: 1.5rem;
     align-items: center;
     text-align: center;
   }
-
   .btn-agregar {
     align-self: center;
   }
 }
+
+/* ===== Modal look & feel AURUMA ===== */
+.auruma-modal {
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(0,0,0,.22);
+  overflow: hidden;
+}
+
+.auruma-modal .modal-title {
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+.modal-product {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.modal-product-img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+.modal-product-info {
+  display: grid;
+  gap: 2px;
+}
+
+.modal-product-name {
+  font-weight: 600;
+  margin: 0;
+}
+
+.modal-product-size {
+  margin: 0;
+  color: #6b7280;
+  font-size: .95rem;
+}
+
+.modal-product-qty,
+.modal-product-sub {
+  margin: 0;
+}
+
