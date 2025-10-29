@@ -25,6 +25,7 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
+/* ====== Imagen ====== */
 .item-detail-image {
   flex: 1.1;
   display: flex;
@@ -53,6 +54,7 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
+/* ====== Info producto ====== */
 .item-detail-info {
   flex: 1.2;
   padding: 2rem 2.5rem;
@@ -89,6 +91,7 @@
   margin-bottom: 1.2rem;
 }
 
+/* ====== Botón principal ====== */
 .btn-agregar {
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
@@ -110,6 +113,7 @@
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
 }
 
+/* ====== Descripción ====== */
 .descripcion-detalle {
   margin-top: 3rem;
   background: #ffffff;
@@ -131,6 +135,7 @@
   text-align: center;
 }
 
+/* ====== Animaciones ====== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -141,20 +146,24 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ====== Responsive ====== */
 @media (max-width: 900px) {
   .item-detail-horizontal {
     flex-direction: column;
     max-width: 95%;
   }
+
   .item-detail-image {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
+
   .item-detail-info {
     padding: 1.5rem;
     align-items: center;
     text-align: center;
   }
+
   .btn-agregar {
     align-self: center;
   }
@@ -163,6 +172,10 @@
 /* ===== Modal AURUMA ===== */
 .modal-backdrop.show {
   opacity: 0.35;
+}
+
+#addToCartModal .modal-dialog {
+  max-width: 460px;
 }
 
 .modal.fade .modal-dialog {
@@ -211,48 +224,13 @@
 
 .modal-content.auruma-modal .modal-body {
   text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
-.modal-product {
-  display: flex;
-  align-items: center;
+.modal-content.auruma-modal .modal-footer {
   justify-content: center;
-  gap: 16px;
-  padding: 0.5rem 0;
-}
-
-.modal-product-img {
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.modal-product-info p {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-.modal-product-name {
-  font-weight: 600;
-  color: #000;
-}
-
-.modal-product-size {
-  color: #6b7280;
-}
-
-.modal-product-qty,
-.modal-product-sub {
-  font-size: 0.9rem;
-  color: #333;
-}
-
-.modal-product-qty strong,
-.modal-product-sub strong {
-  color: #8b0000;
+  gap: 12px;
 }
 
 .auruma-btn-light,
@@ -264,24 +242,22 @@
   padding: 0.55rem 1.4rem;
   font-weight: 500;
   transition: all 0.3s ease;
+  min-width: 150px;
 }
 
 .auruma-btn-light:hover,
 .auruma-btn-dark:hover {
   background: linear-gradient(135deg, #cc2e2e, #a01717);
   transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
+  box-shadow: 0 6px 15px rgba(175, 28, 28, 0.35);
 }
 
+/* Responsive del modal */
 @media (max-width: 576px) {
-  .modal-product {
-    flex-direction: column;
-    text-align: center;
-  }
-  .modal-product-img {
-    width: 65px;
-    height: 65px;
+  #addToCartModal .modal-dialog {
+    max-width: 92%;
   }
 }
+
 
 
