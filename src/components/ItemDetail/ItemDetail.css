@@ -169,43 +169,50 @@
   }
 }
 
-/* ====== Modal AURUMA ====== */
-.auruma-modal {
-  background: #ffffff; /* fondo blanco puro */
+/* ===== Modal AURUMA ===== */
+.modal-backdrop.show {
+  opacity: 0.35;
+}
+
+.modal.fade .modal-dialog {
+  transform: translateY(10px) scale(0.97);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.modal.fade.show .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.modal-content.auruma-modal {
+  background: #ffffff;
   color: #111;
   border-radius: 18px;
-  border: 1.5px solid #c1a45f; /* borde dorado suave */
+  border: 1.5px solid #c1a45f;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
-.auruma-modal .modal-header {
+.modal-content.auruma-modal .modal-header {
   border-bottom: 1px solid rgba(193, 164, 95, 0.35);
-  background: #fffaf0; /* leve tono cálido */
+  background: #fffaf0;
 }
 
-.auruma-modal .modal-title {
+.modal-content.auruma-modal .modal-title {
   font-family: "Playfair Display", serif;
   font-weight: 700;
   color: #8b0000;
   letter-spacing: 0.5px;
 }
 
-/* Botón de cerrar (X) */
-.auruma-modal .btn-close {
-  background-color: transparent;
+.modal-content.auruma-modal .btn-close {
   filter: invert(20%) sepia(50%) saturate(400%) hue-rotate(-20deg);
-  opacity: 0.7;
-  transition: all 0.3s ease;
+  opacity: 0.75;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
-
-.auruma-modal .btn-close:hover {
+.modal-content.auruma-modal .btn-close:hover {
   opacity: 1;
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
-/* Contenido del producto */
 .modal-product {
   display: flex;
   align-items: center;
@@ -247,19 +254,18 @@
   color: #8b0000;
 }
 
-/* ===== Botones del modal ===== */
 .auruma-btn-light {
-  background-color: #fff;
-  border: 1.5px solid #c1a45f;
+  background: #fff;
   color: #000 !important;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  border: 1.5px solid #c1a45f;
   border-radius: 30px;
   padding: 0.5rem 1.4rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .auruma-btn-light:hover {
-  background-color: #f8f0e2;
+  background: #f8f0e2;
   color: #8b0000 !important;
   transform: translateY(-2px);
 }
@@ -268,9 +274,9 @@
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
   border: none;
-  font-weight: 500;
   border-radius: 30px;
   padding: 0.5rem 1.4rem;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
@@ -280,14 +286,17 @@
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
 }
 
+/* ===== Responsive modal ===== */
 @media (max-width: 576px) {
   .modal-product {
     flex-direction: column;
     text-align: center;
   }
+
   .modal-product-img {
     width: 65px;
     height: 65px;
   }
 }
+
 
