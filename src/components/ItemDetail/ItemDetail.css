@@ -25,7 +25,6 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* ====== Imagen ====== */
 .item-detail-image {
   flex: 1.1;
   display: flex;
@@ -54,7 +53,6 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* ====== Info producto ====== */
 .item-detail-info {
   flex: 1.2;
   padding: 2rem 2.5rem;
@@ -91,7 +89,6 @@
   margin-bottom: 1.2rem;
 }
 
-/* ====== Botón principal ====== */
 .btn-agregar {
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
@@ -113,7 +110,6 @@
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
 }
 
-/* ====== Descripción ====== */
 .descripcion-detalle {
   margin-top: 3rem;
   background: #ffffff;
@@ -135,7 +131,7 @@
   text-align: center;
 }
 
-/* ====== Animaciones ====== */
+/* ===== Animaciones ===== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -146,7 +142,6 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ====== Responsive ====== */
 @media (max-width: 900px) {
   .item-detail-horizontal {
     flex-direction: column;
@@ -174,8 +169,8 @@
   opacity: 0.35;
 }
 
-#addToCartModal .modal-dialog {
-  max-width: 460px;
+#addedModal .modal-dialog {
+  max-width: 420px;
 }
 
 .modal.fade .modal-dialog {
@@ -214,7 +209,6 @@
   right: 16px;
   top: 16px;
   opacity: 0.8;
-  filter: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .modal-content.auruma-modal .btn-close:hover {
@@ -222,18 +216,41 @@
   transform: scale(1.08);
 }
 
-.modal-content.auruma-modal .modal-body {
+.modal-body {
   text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
+  padding: 1rem 1rem 0.5rem;
 }
 
-.modal-content.auruma-modal .modal-footer {
+.modal-footer {
   justify-content: center;
   gap: 12px;
+  border-top: none;
 }
 
-.auruma-btn-light,
+.modal-product-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  color: #000;
+}
+
+.modal-product-size {
+  color: #666;
+  margin-bottom: 0.4rem;
+}
+
+.modal-product-qty,
+.modal-product-sub {
+  color: #333;
+  font-size: 0.95rem;
+  margin: 0.15rem 0;
+}
+
+.modal-product-qty strong,
+.modal-product-sub strong {
+  color: #8b0000;
+}
+
 .auruma-btn-dark {
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
@@ -245,16 +262,14 @@
   min-width: 150px;
 }
 
-.auruma-btn-light:hover,
 .auruma-btn-dark:hover {
   background: linear-gradient(135deg, #cc2e2e, #a01717);
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.35);
 }
 
-/* Responsive del modal */
 @media (max-width: 576px) {
-  #addToCartModal .modal-dialog {
+  #addedModal .modal-dialog {
     max-width: 92%;
   }
 }
