@@ -25,7 +25,6 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* ====== Imagen ====== */
 .item-detail-image {
   flex: 1.1;
   display: flex;
@@ -54,7 +53,6 @@
   100% { opacity: 1; transform: scale(1); }
 }
 
-/* ====== Info producto ====== */
 .item-detail-info {
   flex: 1.2;
   padding: 2rem 2.5rem;
@@ -91,7 +89,6 @@
   margin-bottom: 1.2rem;
 }
 
-/* ====== Botón principal ====== */
 .btn-agregar {
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
@@ -113,7 +110,6 @@
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
 }
 
-/* ====== Descripción ====== */
 .descripcion-detalle {
   margin-top: 3rem;
   background: #ffffff;
@@ -135,7 +131,6 @@
   text-align: center;
 }
 
-/* ====== Animaciones ====== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -146,24 +141,20 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ====== Responsive ====== */
 @media (max-width: 900px) {
   .item-detail-horizontal {
     flex-direction: column;
     max-width: 95%;
   }
-
   .item-detail-image {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
-
   .item-detail-info {
     padding: 1.5rem;
     align-items: center;
     text-align: center;
   }
-
   .btn-agregar {
     align-self: center;
   }
@@ -192,8 +183,10 @@
 }
 
 .modal-content.auruma-modal .modal-header {
-  border-bottom: 1px solid rgba(193, 164, 95, 0.35);
-  background: #fffaf0;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(193, 164, 95, 0.25);
+  justify-content: center;
+  position: relative;
 }
 
 .modal-content.auruma-modal .modal-title {
@@ -204,18 +197,26 @@
 }
 
 .modal-content.auruma-modal .btn-close {
-  filter: invert(20%) sepia(50%) saturate(400%) hue-rotate(-20deg);
-  opacity: 0.75;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  opacity: 0.8;
+  filter: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .modal-content.auruma-modal .btn-close:hover {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+.modal-content.auruma-modal .modal-body {
+  text-align: center;
 }
 
 .modal-product {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   padding: 0.5rem 0;
 }
@@ -225,8 +226,8 @@
   height: 75px;
   object-fit: cover;
   border-radius: 10px;
-  border: 2px solid #c1a45f;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .modal-product-info p {
@@ -254,45 +255,29 @@
   color: #8b0000;
 }
 
-.auruma-btn-light {
-  background: #fff;
-  color: #000 !important;
-  border: 1.5px solid #c1a45f;
-  border-radius: 30px;
-  padding: 0.5rem 1.4rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.auruma-btn-light:hover {
-  background: #f8f0e2;
-  color: #8b0000 !important;
-  transform: translateY(-2px);
-}
-
+.auruma-btn-light,
 .auruma-btn-dark {
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
   border: none;
   border-radius: 30px;
-  padding: 0.5rem 1.4rem;
+  padding: 0.55rem 1.4rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
+.auruma-btn-light:hover,
 .auruma-btn-dark:hover {
   background: linear-gradient(135deg, #cc2e2e, #a01717);
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
 }
 
-/* ===== Responsive modal ===== */
 @media (max-width: 576px) {
   .modal-product {
     flex-direction: column;
     text-align: center;
   }
-
   .modal-product-img {
     width: 65px;
     height: 65px;
