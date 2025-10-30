@@ -13,7 +13,7 @@ export const Footer = () => {
         {/* Redes sociales */}
         <div className="footer-right d-flex gap-3 mt-2 mt-lg-0">
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/auruma_fragancias/"
             target="_blank"
             rel="noopener noreferrer"
           >
