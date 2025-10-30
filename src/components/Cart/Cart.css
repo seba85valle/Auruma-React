@@ -140,7 +140,6 @@
   background: #b89b4f;
 }
 
-/* ====== VACÍO ====== */
 .cart-empty {
   text-align: center;
   padding: 150px 20px;
@@ -180,6 +179,7 @@
     flex-direction: column;
     text-align: center;
     padding: 12px;
+    background: #fff; /* 
   }
 
   .cart-item-image img {
@@ -202,4 +202,5 @@
     max-width: 250px;
   }
 }
+
 
