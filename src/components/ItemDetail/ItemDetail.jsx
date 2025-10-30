@@ -13,14 +13,12 @@ export const ItemDetail = ({ detail }) => {
     addItem({ ...detail, quantity });
     setQuantityAdded(quantity);
 
-  setTimeout(() => {
-    const modalEl = document.getElementById("addedModal");
+  const modalEl = document.getElementById("addedModal");
     if (modalEl && window.bootstrap?.Modal) {
       const modal = new window.bootstrap.Modal(modalEl);
       modal.show();
     }
-  }, 100);
-};
+  };
   
   const handleGoToCart = () => {
     const modalEl = document.getElementById("addedModal");
@@ -87,15 +85,6 @@ export const ItemDetail = ({ detail }) => {
               )}
               <p className="modal-product-qty">
                 Cantidad: <strong>{quantityAdded}</strong>
-              </p>
-              <p className="modal-product-sub">
-                Subtotal:{" "}
-                <strong>
-                  $
-                  {(Number(detail.price || 0) * quantityAdded).toLocaleString(
-                    "es-AR"
-                  )}
-                </strong>
               </p>
             </div>
 
