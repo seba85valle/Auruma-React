@@ -13,13 +13,15 @@ export const ItemDetail = ({ detail }) => {
     addItem({ ...detail, quantity });
     setQuantityAdded(quantity);
 
+  setTimeout(() => {
     const modalEl = document.getElementById("addedModal");
     if (modalEl && window.bootstrap?.Modal) {
       const modal = new window.bootstrap.Modal(modalEl);
       modal.show();
     }
-  };
-
+  }, 100);
+};
+  
   const handleGoToCart = () => {
     const modalEl = document.getElementById("addedModal");
     const modal = window.bootstrap.Modal.getInstance(modalEl);
