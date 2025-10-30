@@ -1,7 +1,18 @@
+/* ======= NAVBAR ======= */
 .auruma-navbar {
   font-family: "Poppins", sans-serif;
   padding: 0.5rem 1rem;
   z-index: 1030;
+  position: fixed;             
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;       
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+}
+
+body {
+  padding-top: 90px; 
 }
 
 .logo {
@@ -83,4 +94,9 @@
   .cart-link {
     font-size: 1.4rem;
   }
+
+  body {
+    padding-top: 70px;
+  }
 }
+
