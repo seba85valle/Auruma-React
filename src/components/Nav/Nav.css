@@ -1,18 +1,17 @@
-/* ======= NAVBAR ======= */
 .auruma-navbar {
   font-family: "Poppins", sans-serif;
   padding: 0.5rem 1rem;
   z-index: 1030;
-  position: fixed;             
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;       
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 body {
-  padding-top: 90px; 
+  padding-top: 90px;
 }
 
 .logo {
@@ -33,10 +32,18 @@ body {
 .navbar-toggler {
   border: none;
   box-shadow: none !important;
+  background-color: transparent !important;
 }
-.navbar-toggler:focus {
+.navbar-toggler:focus,
+.navbar-toggler:hover,
+.navbar-toggler:active {
   outline: none;
-  box-shadow: none;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 .nav-link {
@@ -94,9 +101,9 @@ body {
   .cart-link {
     font-size: 1.4rem;
   }
-
   body {
     padding-top: 70px;
   }
 }
+
 
