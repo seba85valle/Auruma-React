@@ -7,7 +7,7 @@
 }
 
 body:has(.cart-container) {
-  background-color: #f2f2f2; /* Gris suave de fondo */
+  background-color: #f2f2f2;
   transition: background-color 0.6s ease;
 }
 
@@ -15,7 +15,7 @@ body:has(.cart-container) {
   max-width: 900px;
   margin: 120px auto 80px;
   padding: 24px;
-  background-color: #f6f6f6; /* Gris claro para contraste con las tarjetas */
+  background-color: #f6f6f6;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   animation: fadeSlideIn 0.8s ease forwards;
@@ -40,7 +40,7 @@ body:has(.cart-container) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fff; /* Blanco puro */
+  background: #fff;
   border-radius: 10px;
   padding: 16px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
@@ -87,44 +87,30 @@ body:has(.cart-container) {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: #800000; 
+  color: #800000;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
 }
 
 .btn-delete:hover {
-  transform: scale(1.1);
-  color: #800000; 
+  color: #a00000;
+  transform: scale(1.25);
+  animation: bounce 0.4s ease;
+  box-shadow: 0 0 6px rgba(128, 0, 0, 0.3);
+}
+
+.btn-delete:active {
+  animation: bounce 0.25s ease;
+  transform: scale(1.15);
 }
 
 .btn-delete,
 .btn-delete i,
-.btn-delete .bi {
+.btn-delete svg {
   background-color: transparent !important;
-  color: #800000 !important;     /* color fijo del icono */
+  color: inherit !important;
   border: none !important;
   box-shadow: none !important;
-}
-
-.btn-delete:hover,
-.btn-delete:focus,
-.btn-delete:active,
-.btn-delete:focus-visible {
-  transform: scale(1.05);
-  background-color: transparent !important;
-  color: #800000 !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-button.btn-delete,
-button.btn-delete i {
-  background-color: transparent !important;
-  color: #800000 !important;
-}
-
-.btn-delete svg,
-.btn-delete i {
   fill: none !important;
   stroke: currentColor !important;
 }
@@ -189,15 +175,6 @@ button.btn-delete i {
   margin-bottom: 1rem;
 }
 
-/* ====== ANIMACIONES ====== */
-.fade-in {
-  animation: fadeIn 0.7s ease forwards;
-}
-
-.slide-up {
-  animation: slideUp 0.6s ease forwards;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
@@ -213,13 +190,19 @@ button.btn-delete i {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ====== RESPONSIVE ====== */
+@keyframes bounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.3); }
+  60% { transform: scale(0.95); }
+  80% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
 @media (max-width: 768px) {
   .cart-item {
     flex-direction: column;
     text-align: center;
     padding: 12px;
-    background: #fff;
   }
 
   .cart-item-image img {
@@ -228,8 +211,7 @@ button.btn-delete i {
   }
 
   .cart-item-info {
-    margin-left: 0;
-    margin-top: 10px;
+    margin: 10px 0 0;
   }
 
   .cart-buttons {
@@ -237,10 +219,12 @@ button.btn-delete i {
     align-items: center;
   }
 
-  .btn-clear, .btn-checkout {
+  .btn-clear,
+  .btn-checkout {
     width: 100%;
     max-width: 250px;
   }
 }
+
 
 
