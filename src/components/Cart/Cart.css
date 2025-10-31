@@ -87,13 +87,14 @@ body:has(.cart-container) {
   background: none;
   border: none;
   font-size: 1.5rem;
-  color: #800000;
+  color: #800000; 
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
 .btn-delete:hover {
   transform: scale(1.1);
+  color: #800000; 
 }
 
 .cart-footer {
@@ -156,6 +157,7 @@ body:has(.cart-container) {
   margin-bottom: 1rem;
 }
 
+/* ====== ANIMACIONES ====== */
 .fade-in {
   animation: fadeIn 0.7s ease forwards;
 }
@@ -179,6 +181,7 @@ body:has(.cart-container) {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
   .cart-item {
     flex-direction: column;
@@ -207,4 +210,5 @@ body:has(.cart-container) {
     max-width: 250px;
   }
 }
+
 
