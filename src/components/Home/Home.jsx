@@ -73,7 +73,7 @@ export const Home = () => {
               </div>
               <h3 className="card__title">Presentación Premium</h3>
               <p className="card__text">
-                Cada producto se entrega cuidadosamente presentado, ideal para regalar o disfrutar con estilo y elegancia.
+                Cada producto se entrega con una presentación impecable, ideal para regalar o disfrutar con estilo.
               </p>
               <div className="card__badges">
                 <span className="badge">Packaging elegante</span>
