@@ -97,6 +97,38 @@ body:has(.cart-container) {
   color: #800000; 
 }
 
+.btn-delete,
+.btn-delete i,
+.btn-delete .bi {
+  background-color: transparent !important;
+  color: #800000 !important;     /* color fijo del icono */
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.btn-delete:hover,
+.btn-delete:focus,
+.btn-delete:active,
+.btn-delete:focus-visible {
+  transform: scale(1.05);
+  background-color: transparent !important;
+  color: #800000 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button.btn-delete,
+button.btn-delete i {
+  background-color: transparent !important;
+  color: #800000 !important;
+}
+
+.btn-delete svg,
+.btn-delete i {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
 .cart-footer {
   margin-top: 2rem;
   text-align: right;
