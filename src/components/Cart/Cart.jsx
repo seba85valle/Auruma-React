@@ -1,4 +1,5 @@
 import { useCartContext } from "../../context/CartContext/useCartContext";
+import { Link } from "react-router-dom"; 
 import "./Cart.css";
 
 export const Cart = () => {
@@ -9,9 +10,9 @@ export const Cart = () => {
       <div className="cart-empty fade-in">
         <h2>Tu carrito está vacío</h2>
         <p>Agregá tus fragancias favoritas para continuar tu experiencia AURUMA.</p>
-        <a href="/perfumes" className="btn-return">
-          Ver productos
-        </a>
+        <Link to="/perfumes" className="btn-volver">
+          Ir a la tienda
+        </Link>
       </div>
     );
   }
@@ -67,4 +68,3 @@ export const Cart = () => {
     </div>
   );
 };
-
