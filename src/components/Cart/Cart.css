@@ -83,6 +83,24 @@ body:has(.cart-container) {
   color: #333;
 }
 
+.btn-return {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--gold);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-return:hover {
+  background: #b89b4f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
 .btn-delete {
   background: none;
   border: none;
