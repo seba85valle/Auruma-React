@@ -9,6 +9,9 @@ export const Cart = () => {
       <div className="cart-empty fade-in">
         <h2>Tu carrito está vacío</h2>
         <p>Agregá tus fragancias favoritas para continuar tu experiencia AURUMA.</p>
+        <a href="/perfumes" className="btn-return">
+          Ver productos
+        </a>
       </div>
     );
   }
