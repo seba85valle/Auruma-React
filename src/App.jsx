@@ -7,6 +7,7 @@ import { Footer } from "./components/Footer/Footer";
 import { ContactForm } from "./components/ContactForm/ContactForm";
 import { CartProvider } from "./context/CartContext/CartProvider";
 import { Cart } from "./components/Cart/Cart";
+import { ProductFormContainer } from "./components/adminComponents/ProductFormContainer/ProductFormContainer";
 
 import "./App.css";
 
