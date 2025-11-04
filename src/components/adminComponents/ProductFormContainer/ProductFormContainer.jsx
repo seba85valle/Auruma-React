@@ -78,8 +78,8 @@ export const ProductFormContainer = () => {
       {successModal && (
         <div className="modal-overlay" onClick={() => setSuccessModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h3>✨ Producto creado con éxito</h3>
-            <p>El producto fue guardado correctamente en la base de datos.</p>
+            <h3>Producto creado con éxito</h3>
+            <p>El producto fue guardado correctamente.</p>
             <button onClick={() => setSuccessModal(false)}>Cerrar</button>
           </div>
         </div>
