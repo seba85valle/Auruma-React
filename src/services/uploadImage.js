@@ -5,7 +5,7 @@
 // ⚠️ Importante: esta clave queda expuesta en el cliente.
 //     Para prácticas esta ok, pero no es ideal para ambientes reales.
 
-const IMGBB_API_KEY = ""; //👈reemplazan por la suya
+const IMGBB_API_KEY = "8420e8c3acdda47fb5e726c212eb90be"; //👈reemplazan por la suya
 const ENDPOINT = "https://api.imgbb.com/1/upload";
 
 // Funcion con la que vamos a convertir la imagen (File) a cadena base64
@@ -90,3 +90,4 @@ export const uploadToImgbb = async (file) => {
   // Si llegamos acá, no recibimos los campos esperados
   throw new Error("No se recibió una URL válida desde imgbb");
 };
+
