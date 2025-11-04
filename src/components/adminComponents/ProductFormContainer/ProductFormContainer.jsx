@@ -9,14 +9,14 @@ export const ProductFormContainer = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [file, setFile] = useState(null);
-  const [modal, setModal] = useState({ show: false, message: "", success: false });
+  const [successModal, setSuccessModal] = useState(false);
 
   const [product, setProduct] = useState({
     name: "",
     price: "",
     category: "",
     size: "",
-    description: "",
+    description: ""
   });
 
   const handleChange = (e) => {
@@ -38,38 +38,34 @@ export const ProductFormContainer = () => {
 
     try {
       const imageUrl = await uploadToImgbb(file);
-      const productData = { ...product, price: Number(product.price), imageUrl };
+
+      const productData = {
+        ...product,
+        price: Number(product.price),
+        imageUrl
+      };
+
       await createProduct(productData);
 
-      setModal({
-        show: true,
-        message: "Producto creado con éxito",
-        success: true,
-      });
+      setSuccessModal(true);
 
       setProduct({
         name: "",
         price: "",
         category: "",
         size: "",
-        description: "",
+        description: ""
       });
       setFile(null);
     } catch (error) {
-      setModal({
-        show: true,
-        message: `Error: ${error.message}`,
-        success: false,
-      });
+      setErrors({ general: error.message });
     } finally {
       setLoading(false);
     }
   };
 
-  const closeModal = () => setModal({ show: false, message: "", success: false });
-
   return (
-    <>
+    <section className="admin-form-section">
       <ProductFormUI
         product={product}
         errors={errors}
@@ -79,15 +75,16 @@ export const ProductFormContainer = () => {
         onSubmit={handleSubmit}
       />
 
-      {modal.show && (
-        <div className={`modal ${modal.success ? "modal-success" : "modal-error"}`}>
-          <div className="modal-content">
-            <p>{modal.message}</p>
-            <button onClick={closeModal}>Cerrar</button>
+      {successModal && (
+        <div className="modal-overlay" onClick={() => setSuccessModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h3>✨ Producto creado con éxito</h3>
+            <p>El producto fue guardado correctamente en la base de datos.</p>
+            <button onClick={() => setSuccessModal(false)}>Cerrar</button>
           </div>
         </div>
       )}
-    </>
+    </section>
   );
 };
 
