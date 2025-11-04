@@ -8,6 +8,13 @@ export const ProductFormUI = ({
   onFileChange,
   onSubmit,
 }) => {
+  const handlePriceChange = (e) => {
+    const value = e.target.value;
+    if (value === "" || Number(value) > 0) {
+      onChange(e);
+    }
+  };
+
   return (
     <section className="admin-section">
       <div className="form-container">
@@ -31,10 +38,11 @@ export const ProductFormUI = ({
             <input
               type="number"
               value={product.price}
-              onChange={onChange}
+              onChange={handlePriceChange}
               name="price"
               required
-              min="1" 
+              min="1"
+              inputMode="decimal"
             />
             {errors.price && <p className="error">{errors.price}</p>}
           </div>
@@ -94,5 +102,6 @@ export const ProductFormUI = ({
     </section>
   );
 };
+
 
 
