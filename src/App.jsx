@@ -35,6 +35,9 @@ function App() {
           
           {/* Carrito */}
           <Route path="/carrito" element={<Cart />} />
+
+          {/* Admin - Formulario de productos */}
+          <Route path="/admin" element={<ProductFormContainer />} />
         
           {/* Contacto */}
           <Route path="/contacto" element={<ContactForm />} />
