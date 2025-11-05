@@ -13,18 +13,24 @@ export const ItemDetail = ({ detail }) => {
     addItem({ ...detail, quantity });
     setQuantityAdded(quantity);
 
-  const modalEl = document.getElementById("addedModal");
+    const modalEl = document.getElementById("addedModal");
     if (modalEl && window.bootstrap?.Modal) {
       const modal = new window.bootstrap.Modal(modalEl);
       modal.show();
     }
   };
-  
+
   const handleGoToCart = () => {
     const modalEl = document.getElementById("addedModal");
     const modal = window.bootstrap.Modal.getInstance(modalEl);
     if (modal) modal.hide();
     navigate("/carrito");
+  };
+
+  const closeModal = () => {
+    const modalEl = document.getElementById("addedModal");
+    const modal = window.bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
   };
 
   return (
@@ -70,8 +76,8 @@ export const ItemDetail = ({ detail }) => {
               <h5 className="modal-title text-center w-100">
                 Producto agregado
               </h5>
-              <button type="button" className="btn-close" onClick={closeModal}>
-                &times;
+              <button type="button" className="auruma-close" onClick={closeModal}>
+                ×
               </button>
             </div>
 
@@ -112,5 +118,3 @@ export const ItemDetail = ({ detail }) => {
     </div>
   );
 };
-
-
