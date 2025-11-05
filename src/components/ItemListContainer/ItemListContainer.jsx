@@ -10,7 +10,7 @@ export const ItemListContainer = ({ titulo = "Perfumes" }) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/data/products.json")
+    fetch("")
       .then((res) => {
         if (!res.ok) throw new Error("Hubo un problema al buscar productos");
         return res.json();
