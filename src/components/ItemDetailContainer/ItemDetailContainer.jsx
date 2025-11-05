@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { getProductById } from "../../services/products";
 import "./ItemDetailContainer.css";
 
 export const ItemDetailContainer = () => {
@@ -10,21 +11,8 @@ export const ItemDetailContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://6908eeba2d902d0651b22ef5.mockapi.io/products")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("No se encontró el producto");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        const found = data.find((p) => p.id === id);
-        if (found) {
-          setDetail(found);
-        } else {
-          throw new Error("Producto no encontrado");
-        }
-      })
+    getProductById(id)
+      .then((data) => setDetail(data))
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
   }, [id]);
@@ -44,3 +32,4 @@ export const ItemDetailContainer = () => {
     </main>
   );
 };
+
