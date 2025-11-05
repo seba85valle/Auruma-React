@@ -84,24 +84,27 @@ body:has(.cart-container) {
 }
 
 .btn-delete {
-  background: none;
+  background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: #555;
+  color: #666;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .btn-delete:hover {
-  color: #222;
-  transform: scale(1.2);
-  animation: bounce 0.4s ease;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  color: #8b0000; /* tono bordó AURUMA */
+  transform: scale(1.15);
 }
 
 .btn-delete:active {
-  animation: bounce 0.25s ease;
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.btn-delete:focus {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 .cart-footer {
@@ -186,7 +189,6 @@ body:has(.cart-container) {
   transform: scale(0.98);
 }
 
-/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
@@ -210,7 +212,6 @@ body:has(.cart-container) {
   100% { transform: scale(1); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .cart-item {
     flex-direction: column;
@@ -243,3 +244,4 @@ body:has(.cart-container) {
     max-width: 250px;
   }
 }
+
