@@ -20,6 +20,7 @@
   position: relative;
   font-weight: 700;
   animation: fadeInDown 1s ease forwards;
+  color: #fff;
 }
 
 .contact-title::after {
