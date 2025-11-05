@@ -206,14 +206,14 @@
 .modal-content.auruma-modal .btn-close {
   position: absolute;
   right: 14px;
-  top: 14px;
+  top: 10px;
   opacity: 0.8;
   background: none;
   border: none;
-  width: 28px;
-  height: 28px;
-  font-size: 1.3rem;
-  color: #000;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  color: #8b0000;
   line-height: 1;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease;
