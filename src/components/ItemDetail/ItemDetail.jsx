@@ -70,12 +70,9 @@ export const ItemDetail = ({ detail }) => {
               <h5 className="modal-title text-center w-100">
                 Producto agregado
               </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Cerrar"
-              ></button>
+              <button type="button" className="btn-close" onClick={closeModal}>
+                &times;
+              </button>
             </div>
 
             <div className="modal-body text-center">
