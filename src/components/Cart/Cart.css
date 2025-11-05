@@ -90,10 +90,13 @@ body:has(.cart-container) {
   color: #666;
   cursor: pointer;
   transition: color 0.25s ease, transform 0.25s ease;
+  border-radius: 0;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
 }
 
 .btn-delete:hover {
-  color: #8b0000; /* tono bordó AURUMA */
+  color: #8b0000;
   transform: scale(1.15);
 }
 
@@ -243,5 +246,16 @@ body:has(.cart-container) {
     width: 100%;
     max-width: 250px;
   }
+}
+
+.cart-item .btn-delete,
+.cart-item .btn-delete:hover,
+.cart-item .btn-delete:focus,
+.cart-item .btn-delete:active,
+.cart-item .btn-delete:focus-visible {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  outline: none !important;
 }
 
