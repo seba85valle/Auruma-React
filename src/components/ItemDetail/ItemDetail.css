@@ -89,25 +89,6 @@
   margin-bottom: 1.2rem;
 }
 
-.btn-agregar {
-  background: linear-gradient(135deg, #b22222, #8b0000);
-  color: #fff !important;
-  border: none;
-  padding: 0.8rem 1.8rem;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  align-self: start;
-}
-
-.btn-agregar:hover {
-  background: linear-gradient(135deg, #cc2e2e, #a01717);
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(175, 28, 28, 0.4);
-}
-
 .descripcion-detalle {
   margin-top: 3rem;
   background: #ffffff;
@@ -155,10 +136,6 @@
     align-items: center;
     text-align: center;
   }
-
-  .btn-agregar {
-    align-self: center;
-  }
 }
 
 .modal-backdrop.show {
@@ -166,7 +143,7 @@
 }
 
 #addedModal .modal-dialog {
-  max-width: 320px;
+  max-width: 300px;
 }
 
 .modal.fade .modal-dialog {
@@ -192,6 +169,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   justify-content: center;
   position: relative;
+  padding: 1.2rem 1rem 1rem;
 }
 
 .modal-content.auruma-modal .modal-title {
@@ -199,25 +177,29 @@
   font-weight: 700;
   color: #8b0000;
   letter-spacing: 0.5px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .auruma-close {
   position: absolute;
-  right: 14px;
+  right: 12px;
   top: 10px;
   font-size: 1.6rem;
+  font-weight: 400;
   color: #8b0000;
   background: none;
   border: none;
   cursor: pointer;
-  opacity: 0.8;
   line-height: 1;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+  transition: all 0.2s ease;
 }
 
 .auruma-close:hover {
   opacity: 1;
   transform: scale(1.1);
+  color: #d4af37;
 }
 
 .modal-body {
@@ -275,6 +257,7 @@
     max-width: 85%;
   }
 }
+
 
 
 
