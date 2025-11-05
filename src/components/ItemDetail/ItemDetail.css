@@ -143,14 +143,13 @@
 }
 
 #addedModal .modal-dialog {
-  max-width: 300px;
+  max-width: 340px;
 }
 
 .modal.fade .modal-dialog {
   transform: translateY(10px) scale(0.97);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
-
 .modal.fade.show .modal-dialog {
   transform: translateY(0) scale(1);
 }
@@ -158,10 +157,11 @@
 .modal-content.auruma-modal {
   background: #ffffff;
   color: #111;
-  border-radius: 18px;
+  border-radius: 22px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  padding-bottom: 1rem;
 }
 
 .modal-content.auruma-modal .modal-header {
@@ -169,29 +169,27 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   justify-content: center;
   position: relative;
-  padding: 1.2rem 1rem 1rem;
+  padding: 1.2rem 1rem 0.8rem;
 }
 
 .modal-content.auruma-modal .modal-title {
   font-family: "Playfair Display", serif;
   font-weight: 700;
   color: #8b0000;
-  letter-spacing: 0.5px;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   text-align: center;
 }
 
 .auruma-close {
   position: absolute;
-  right: 12px;
-  top: 10px;
-  font-size: 1.6rem;
-  font-weight: 400;
+  right: 18px;
+  top: 12px;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: #8b0000;
   background: none;
   border: none;
   cursor: pointer;
-  line-height: 1;
   opacity: 0.8;
   transition: all 0.2s ease;
 }
@@ -199,18 +197,19 @@
 .auruma-close:hover {
   opacity: 1;
   transform: scale(1.1);
-  color: #d4af37;
+  color: #b22222;
 }
 
 .modal-body {
   text-align: center;
-  padding: 1rem 1rem 0.5rem;
+  padding: 1rem 1.2rem 0.5rem;
 }
 
 .modal-footer {
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   border-top: none;
+  margin-top: 0.5rem;
 }
 
 .modal-product-name {
@@ -239,11 +238,12 @@
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
   border: none;
-  border-radius: 30px;
-  padding: 0.55rem 1.4rem;
+  border-radius: 35px;
+  padding: 0.6rem 1.6rem;
   font-weight: 500;
   transition: all 0.3s ease;
-  min-width: 130px;
+  min-width: 150px;
+  text-align: center;
 }
 
 .auruma-btn-dark:hover {
@@ -257,7 +257,6 @@
     max-width: 85%;
   }
 }
-
 
 
 
