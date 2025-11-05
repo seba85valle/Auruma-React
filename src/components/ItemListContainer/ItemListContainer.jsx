@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
+import { getAllProducts } from "../../services/products";
 import "./ItemListContainer.css";
 
 export const ItemListContainer = ({ titulo = "Perfumes" }) => {
@@ -10,11 +11,7 @@ export const ItemListContainer = ({ titulo = "Perfumes" }) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://6908eeba2d902d0651b22ef5.mockapi.io/products")
-      .then((res) => {
-        if (!res.ok) throw new Error("Hubo un problema al buscar productos");
-        return res.json();
-      })
+    getAllProducts()
       .then((data) => {
         setProducts(categoria ? data.filter((p) => p.category === categoria) : data);
       })
