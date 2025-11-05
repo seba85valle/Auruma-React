@@ -19,7 +19,6 @@
   margin-top: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .item-detail-horizontal:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
@@ -33,7 +32,6 @@
   background: #ffffff;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
-
 .item-detail-image img {
   width: 100%;
   height: auto;
@@ -41,13 +39,11 @@
   object-fit: contain;
   border-radius: 0.5rem;
 }
-
 .product-img-animate {
   opacity: 0;
   transform: scale(0.95);
   animation: fadeZoomIn 1s ease forwards;
 }
-
 @keyframes fadeZoomIn {
   0% { opacity: 0; transform: scale(0.9); }
   100% { opacity: 1; transform: scale(1); }
@@ -62,11 +58,15 @@
 }
 
 .item-detail-title {
-  font-size: 2rem;
-  color: #222;
-  margin-bottom: 0.25rem;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
-  text-transform: uppercase;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: .3px;
+  color: #222;
+  margin: 0 0 .5rem;
+  text-transform: none;      
+  text-align: left;          
 }
 
 .item-detail-size {
@@ -74,14 +74,12 @@
   color: #6b7280;
   margin-bottom: 0.6rem;
 }
-
 .item-detail-price {
   font-size: 1.8rem;
   color: #8b0000;
   font-weight: 600;
   margin-bottom: 1.2rem;
 }
-
 .item-detail-short {
   color: #555;
   font-size: 1.05rem;
@@ -101,7 +99,6 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   animation: fadeUp 0.8s ease;
 }
-
 .descripcion-detalle h4 {
   color: #8b0000;
   font-weight: 700;
@@ -112,150 +109,120 @@
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 900px) {
-  .item-detail-horizontal {
-    flex-direction: column;
-    max-width: 95%;
-  }
-
-  .item-detail-image {
-    border-right: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-
-  .item-detail-info {
-    padding: 1.5rem;
-    align-items: center;
-    text-align: center;
-  }
+  .item-detail-horizontal { flex-direction: column; max-width: 95%; }
+  .item-detail-image { border-right: none; border-bottom: 1px solid rgba(0,0,0,.05); }
+  .item-detail-info { padding: 1.5rem; text-align: center; align-items: center; }
 }
 
-.modal-backdrop.show {
-  opacity: 0.35;
-}
+/* ================== MODAL (AURUMA) ================== */
+
+.modal-backdrop.show { opacity: .35; }
 
 #addedModal .modal-dialog {
-  max-width: 340px;
+  max-width: 360px;     /* más chico y proporcionado */
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 576px) {
+  #addedModal .modal-dialog { max-width: 88%; }
 }
 
 .modal.fade .modal-dialog {
-  transform: translateY(10px) scale(0.97);
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform: translateY(10px) scale(.97);
+  transition: transform .25s ease, opacity .25s ease;
 }
-.modal.fade.show .modal-dialog {
-  transform: translateY(0) scale(1);
-}
+.modal.fade.show .modal-dialog { transform: translateY(0) scale(1); }
 
 .modal-content.auruma-modal {
-  background: #ffffff;
+  background: #fff;
   color: #111;
-  border-radius: 22px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,.2);
   overflow: hidden;
-  padding-bottom: 1rem;
 }
 
 .modal-content.auruma-modal .modal-header {
-  background: #ffffff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.1);
   justify-content: center;
   position: relative;
-  padding: 1.2rem 1rem 0.8rem;
+  padding: 1.2rem 1rem 1rem;
 }
-
 .modal-content.auruma-modal .modal-title {
   font-family: "Playfair Display", serif;
   font-weight: 700;
+  font-size: 1.15rem;
   color: #8b0000;
-  font-size: 1.25rem;
+  letter-spacing: .3px;
+  margin: 0;
   text-align: center;
 }
 
 .auruma-close {
   position: absolute;
-  right: 18px;
-  top: 12px;
+  right: 10px;
+  top: 8px;
   font-size: 1.4rem;
-  font-weight: 600;
+  line-height: 1;
   color: #8b0000;
-  background: none;
-  border: none;
+  background: transparent !important;
+  border: none !important;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
-  opacity: 0.8;
-  transition: all 0.2s ease;
+  opacity: .85;
+  transition: transform .2s ease, opacity .2s ease, color .2s ease;
+  box-shadow: none !important;
 }
-
-.auruma-close:hover {
-  opacity: 1;
-  transform: scale(1.1);
-  color: #b22222;
-}
+.auruma-close:hover { opacity: 1; transform: scale(1.08); }
 
 .modal-body {
   text-align: center;
-  padding: 1rem 1.2rem 0.5rem;
+  padding: 1rem 1rem .5rem;
 }
-
-.modal-footer {
-  justify-content: center;
-  gap: 10px;
-  border-top: none;
-  margin-top: 0.5rem;
-}
-
 .modal-product-name {
-  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
   font-size: 1.05rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: .3rem;
   color: #000;
 }
+.modal-product-size { color: #666; margin-bottom: .4rem; }
+.modal-product-qty  { color: #333; font-size: .95rem; margin: .15rem 0; }
+.modal-product-qty strong { color: #8b0000; }
 
-.modal-product-size {
-  color: #666;
-  margin-bottom: 0.4rem;
+.modal-footer {
+  border-top: none;
+  justify-content: center;
+  gap: 12px;
+  padding-top: .25rem;
+  padding-bottom: 1.25rem;
 }
-
-.modal-product-qty {
-  color: #333;
-  font-size: 0.95rem;
-  margin: 0.15rem 0;
-}
-
-.modal-product-qty strong {
-  color: #8b0000;
-}
-
 .auruma-btn-dark {
+  display: inline-block;
   background: linear-gradient(135deg, #b22222, #8b0000);
   color: #fff !important;
   border: none;
-  border-radius: 35px;
-  padding: 0.6rem 1.6rem;
+  border-radius: 30px;
+  padding: .55rem 1.4rem;
   font-weight: 500;
-  transition: all 0.3s ease;
   min-width: 150px;
   text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
-
 .auruma-btn-dark:hover {
-  background: linear-gradient(135deg, #cc2e2e, #a01717);
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(175, 28, 28, 0.35);
-}
-
-@media (max-width: 576px) {
-  #addedModal .modal-dialog {
-    max-width: 85%;
-  }
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(175,28,28,.35);
+  filter: brightness(1.03);
 }
 
 
