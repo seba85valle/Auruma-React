@@ -5,7 +5,7 @@ import "./Cart.css";
 import logoAuruma from "/images/logo1.png";
 
 export const Cart = () => {
-  const { cart, clearCart, removeItem } = useCartContext();
+  const { cart, clearCart, deleteItem } = useCartContext();
   const [showModal, setShowModal] = useState(false);
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -43,10 +43,8 @@ Gracias por elegir AURUMA.`;
 
   const handleSendWhatsApp = () => {
     const ticket = generateTicket();
-
     const markdownTicket = "```" + ticket + "```";
     const encoded = encodeURIComponent(markdownTicket);
-
     window.open(`https://wa.me/541165134447?text=${encoded}`, "_blank");
   };
 
@@ -84,7 +82,12 @@ Gracias por elegir AURUMA.`;
               </p>
             </div>
 
-            <button className="btn-delete" onClick={() => removeItem(item.id)}>
+            <button
+              type="button"
+              className="btn-delete"
+              onClick={() => deleteItem(item.id)}
+              aria-label="Eliminar producto"
+            >
               ×
             </button>
           </div>
@@ -106,8 +109,8 @@ Gracias por elegir AURUMA.`;
       </div>
 
       {showModal && (
-        <div className="auruma-modal-overlay">
-          <div className="auruma-modal-react">
+        <div className="auruma-modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="auruma-modal-react" onClick={(e) => e.stopPropagation()}>
             <button className="auruma-close" onClick={() => setShowModal(false)}>
               ×
             </button>
@@ -123,7 +126,7 @@ Gracias por elegir AURUMA.`;
                 Enviar por WhatsApp
               </button>
 
-              <Link to="/perfumes" className="auruma-btn-light">
+              <Link to="/perfumes" className="auruma-btn-light" onClick={() => setShowModal(false)}>
                 Volver al catálogo
               </Link>
             </div>
@@ -133,4 +136,3 @@ Gracias por elegir AURUMA.`;
     </div>
   );
 };
-
