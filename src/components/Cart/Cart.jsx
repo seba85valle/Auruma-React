@@ -1,19 +1,19 @@
 import { useCartContext } from "../../context/CartContext/useCartContext";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./Cart.css";
 
 export const Cart = () => {
   const { cart, deleteItem, clearCart, total } = useCartContext();
+  const [modalOpen, setModalOpen] = useState(false);
 
   const generateWhatsAppMessage = (cart, total) => {
     let message = "";
 
-    message += "AURUMA - Pedido\n";
-    message += "\n";
+    message += "AURUMA - Pedido\n\n";
     message += "------------------------------\n";
     message += "Detalle del pedido\n";
     message += "------------------------------\n\n";
-
     message += "Producto               Cant   Subtotal\n";
     message += "--------------------------------------\n";
 
@@ -41,91 +41,69 @@ export const Cart = () => {
   }
 
   return (
-    <div className="cart-container fade-in">
-      <h2 className="cart-title">Tu selección AURUMA</h2>
+    <>
+      <div className="cart-container fade-in">
+        <h2 className="cart-title">Tu selección AURUMA</h2>
 
-      <div className="cart-list">
-        {cart.map((item) => (
-          <div key={item.id} className="cart-item slide-up">
-            <div className="cart-item-image">
-              <img src={item.imageUrl} alt={item.name} />
+        <div className="cart-list">
+          {cart.map((item) => (
+            <div key={item.id} className="cart-item slide-up">
+              <div className="cart-item-image">
+                <img src={item.imageUrl} alt={item.name} />
+              </div>
+
+              <div className="cart-item-info">
+                <h3 className="cart-item-name">{item.name}</h3>
+                {item.size && <p className="cart-item-size">{item.size}</p>}
+                <p className="cart-item-price">${Number(item.price).toLocaleString("es-AR")}</p>
+                <p className="cart-item-quantity">Cantidad: {item.quantity}</p>
+                <p className="cart-item-subtotal">
+                  Subtotal: ${(item.price * item.quantity).toLocaleString("es-AR")}
+                </p>
+              </div>
+
+              <button
+                className="btn-delete"
+                onClick={() => deleteItem(item.id)}
+                aria-label="Eliminar producto"
+              >
+                <i className="bi bi-trash3"></i>
+              </button>
             </div>
+          ))}
+        </div>
 
-            <div className="cart-item-info">
-              <h3 className="cart-item-name">{item.name}</h3>
-              {item.size && <p className="cart-item-size">{item.size}</p>}
-              <p className="cart-item-price">${Number(item.price).toLocaleString("es-AR")}</p>
-              <p className="cart-item-quantity">Cantidad: {item.quantity}</p>
-              <p className="cart-item-subtotal">Subtotal: ${(item.price * item.quantity).toLocaleString("es-AR")}</p>
-            </div>
+        <div className="cart-footer">
+          <p className="cart-total">Total: ${Number(total()).toLocaleString("es-AR")}</p>
 
-            <button className="btn-delete" onClick={() => deleteItem(item.id)} aria-label="Eliminar producto">
-              <i className="bi bi-trash3"></i>
+          <div className="cart-buttons">
+            <button className="btn-clear" onClick={clearCart}>Vaciar carrito</button>
+
+            <button className="btn-checkout" onClick={() => setModalOpen(true)}>
+              Finalizar compra
             </button>
           </div>
-        ))}
-      </div>
-
-      <div className="cart-footer">
-        <p className="cart-total">Total: ${Number(total()).toLocaleString("es-AR")}</p>
-        <div className="cart-buttons">
-          <button className="btn-clear" onClick={clearCart}>Vaciar carrito</button>
-
-          <button
-            className="btn-checkout"
-            onClick={() => {
-              const modalEl = document.getElementById("whatsappModal");
-              if (modalEl && window.bootstrap?.Modal) {
-                const modal = new window.bootstrap.Modal(modalEl);
-                modal.show();
-              }
-            }}
-          >
-            Finalizar compra
-          </button>
         </div>
       </div>
 
-      <div className="modal fade" id="whatsappModal" tabIndex="-1" aria-hidden="true">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content auruma-modal">
-            <div className="modal-header border-0 modal-header-auruma">
-              <img src="/images/logo1.png" alt="AURUMA Logo" className="auruma-logo-modal" />
+      {modalOpen && (
+        <div className="auruma-modal-overlay">
+          <div className="auruma-modal-react">
+            <img src="/images/logo1.png" alt="AURUMA Logo" className="auruma-logo-modal" />
 
-              <button
-                type="button"
-                className="auruma-close"
-                onClick={() => {
-                  const modalEl = document.getElementById("whatsappModal");
-                  const modal = window.bootstrap.Modal.getInstance(modalEl);
-                  if (modal) modal.hide();
-                }}
-              >
-                ×
-              </button>
-            </div>
+            <h3 className="modal-title-auruma">Continuaremos por WhatsApp</h3>
+            <p className="modal-desc">
+              Coordinarás el pago y la entrega con nuestro equipo AURUMA.
+            </p>
 
-            <div className="modal-body text-center">
-              <h5 className="modal-title-auruma">Continuaremos por WhatsApp</h5>
-              <p>Coordinarás el pago y la entrega con nuestro equipo AURUMA.</p>
-            </div>
-
-            <div className="modal-footer border-0 justify-content-center flex-column gap-3">
+            <div className="modal-buttons">
               <button
                 className="auruma-btn-dark w-100"
                 onClick={() => {
                   const message = generateWhatsAppMessage(cart, total());
                   const url = `https://wa.me/541165134447?text=${encodeURIComponent(message)}`;
-
-                  const a = document.createElement("a");
-                  a.href = url;
-                  a.target = "_blank";
-                  a.rel = "noopener noreferrer";
-                  a.click();
-
-                  const modalEl = document.getElementById("whatsappModal");
-                  const modal = window.bootstrap.Modal.getInstance(modalEl);
-                  if (modal) modal.hide();
+                  window.open(url, "_blank", "noopener,noreferrer");
+                  setModalOpen(false);
                 }}
               >
                 Ir a WhatsApp
@@ -134,19 +112,17 @@ export const Cart = () => {
               <Link
                 to="/perfumes"
                 className="auruma-btn-light w-100"
-                onClick={() => {
-                  const modalEl = document.getElementById("whatsappModal");
-                  const modal = window.bootstrap.Modal.getInstance(modalEl);
-                  if (modal) modal.hide();
-                }}
+                onClick={() => setModalOpen(false)}
               >
                 Volver al catálogo
               </Link>
             </div>
+
+            <button className="auruma-close" onClick={() => setModalOpen(false)}>×</button>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
