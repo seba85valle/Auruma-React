@@ -44,7 +44,7 @@ Gracias por elegir AURUMA.`;
   const handleSendWhatsApp = () => {
     const ticket = generateTicket();
     const encoded = encodeURIComponent(ticket);
-    window.open(`https://wa.me/541165134448?text=${encoded}`, "_blank");
+    window.open(`https://wa.me/541165134447?text=${encoded}`, "_blank");
   };
 
   if (cart.length === 0) {
