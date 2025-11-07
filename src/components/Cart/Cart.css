@@ -90,24 +90,11 @@ body:has(.cart-container) {
   color: #666;
   cursor: pointer;
   transition: color 0.25s ease, transform 0.25s ease;
-  border-radius: 0;
-  -webkit-tap-highlight-color: transparent;
-  appearance: none;
 }
 
 .btn-delete:hover {
   color: #8b0000;
   transform: scale(1.15);
-}
-
-.btn-delete:active {
-  transform: scale(1.05);
-}
-
-.btn-delete:focus {
-  outline: none;
-  box-shadow: none;
-  background: transparent;
 }
 
 .cart-footer {
@@ -188,31 +175,77 @@ body:has(.cart-container) {
   transform: scale(1.05);
 }
 
-.btn-volver:active {
-  transform: scale(0.98);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes fadeSlideIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes bounce {
-  0% { transform: scale(1); }
-  40% { transform: scale(1.3); }
-  60% { transform: scale(0.95); }
-  80% { transform: scale(1.15); }
-  100% { transform: scale(1); }
+.auruma-modal {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+.modal-header-auruma {
+  position: relative;
+}
+
+.auruma-logo-modal {
+  width: 70px;
+  display: block;
+  margin: 0 auto;
+}
+
+.auruma-close {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  background: transparent;
+  border: none;
+  color: #444;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.auruma-close:hover {
+  color: var(--gold);
+}
+
+.modal-title-auruma {
+  font-family: var(--heading-font);
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.auruma-btn-dark {
+  background: var(--gold);
+  color: #fff !important;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auruma-btn-dark:hover {
+  background: #b89b4f;
+}
+
+.auruma-btn-light {
+  background: #f1f1f1;
+  color: #222 !important;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auruma-btn-light:hover {
+  background: #e4e4e4;
 }
 
 @media (max-width: 768px) {
@@ -227,10 +260,6 @@ body:has(.cart-container) {
     height: 120px;
   }
 
-  .cart-item-info {
-    margin: 10px 0 0;
-  }
-
   .cart-buttons {
     flex-direction: column;
     align-items: center;
@@ -242,20 +271,8 @@ body:has(.cart-container) {
     max-width: 250px;
   }
 
-  .btn-volver {
-    width: 100%;
-    max-width: 250px;
+  .auruma-modal {
+    padding: 20px;
   }
-}
-
-.cart-item .btn-delete,
-.cart-item .btn-delete:hover,
-.cart-item .btn-delete:focus,
-.cart-item .btn-delete:active,
-.cart-item .btn-delete:focus-visible {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  outline: none !important;
 }
 
