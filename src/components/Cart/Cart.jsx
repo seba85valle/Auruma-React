@@ -8,8 +8,7 @@ export const Cart = () => {
   const generateWhatsAppMessage = (cart, total) => {
     let message = "";
 
-    message += "AURUMA - Pedido\n";
-    message += "\n";
+    message += "AURUMA - Pedido\n\n";
     message += "------------------------------\n";
     message += "Detalle del pedido\n";
     message += "------------------------------\n\n";
@@ -25,7 +24,6 @@ export const Cart = () => {
     });
 
     message += `\nTotal: $${total.toLocaleString("es-AR")}`;
-
     message += `\n\nGracias por elegir AURUMA.`;
 
     return message;
@@ -35,7 +33,9 @@ export const Cart = () => {
     return (
       <div className="cart-empty fade-in">
         <h2>Tu carrito está vacío</h2>
-        <p>Agregá tus fragancias favoritas para continuar tu experiencia AURUMA.</p>
+        <p>
+          Agregá tus fragancias favoritas para continuar tu experiencia AURUMA.
+        </p>
         <Link to="/perfumes" className="btn-volver">
           Ir a la tienda
         </Link>
@@ -68,7 +68,7 @@ export const Cart = () => {
             </div>
 
             <button
-              className="btn-delete"
+              className="cart-delete-btn"
               onClick={() => deleteItem(item.id)}
               aria-label="Eliminar producto"
             >
@@ -102,7 +102,7 @@ export const Cart = () => {
         </div>
       </div>
 
-      {/* MODAL AURUMA WHATSAPP */}
+      {/* MODAL AURUMA */}
       <div
         className="modal fade"
         id="whatsappModal"
@@ -132,23 +132,26 @@ export const Cart = () => {
 
             <div className="modal-body text-center">
               <h5 className="modal-title-auruma">Continuaremos por WhatsApp</h5>
-              <p>
-                Coordinarás el pago y la entrega con nuestro equipo AURUMA.
-              </p>
+              <p>Coordinarás el pago y la entrega con nuestro equipo AURUMA.</p>
             </div>
 
             <div className="modal-footer border-0 justify-content-center flex-column gap-3">
               <button
                 className="auruma-btn-dark w-100"
                 onClick={() => {
-                  const message = generateWhatsAppMessage(cart, total());
+                  const message = generateWhatsAppMessage(
+                    cart,
+                    total()
+                  );
                   const url = `https://wa.me/541165134447?text=${encodeURIComponent(
                     message
                   )}`;
                   window.open(url, "_blank");
 
-                  const modalEl = document.getElementById("whatsappModal");
-                  const modal = window.bootstrap.Modal.getInstance(modalEl);
+                  const modalEl =
+                    document.getElementById("whatsappModal");
+                  const modal =
+                    window.bootstrap.Modal.getInstance(modalEl);
                   if (modal) modal.hide();
                 }}
               >
@@ -173,3 +176,4 @@ export const Cart = () => {
     </div>
   );
 };
+
