@@ -83,7 +83,7 @@ body:has(.cart-container) {
   color: #333;
 }
 
-.btn-delete {
+.cart-delete-btn {
   background: transparent;
   border: none;
   font-size: 1.5rem;
@@ -92,7 +92,7 @@ body:has(.cart-container) {
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
-.btn-delete:hover {
+.cart-delete-btn:hover {
   color: #8b0000;
   transform: scale(1.15);
 }
@@ -178,6 +178,13 @@ body:has(.cart-container) {
 @keyframes fadeSlideIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.modal {
+  z-index: 9999 !important;
+}
+.modal-backdrop {
+  z-index: 9998 !important;
 }
 
 .auruma-modal {
