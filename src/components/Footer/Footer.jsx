@@ -20,8 +20,7 @@ export const Footer = () => {
             <i className="bi bi-instagram social-icon"></i>
           </a>
           <a
-            https://wa.me/541165134448?text=Bienvenidos,%20somos%20AURUMA.%20%C2%BFEn%20qu%C3%A9%20podemos%20ayudarte%3F%20Estamos%20para%20asesorarte%20sobre%20perfumes%2C%20recomendaciones%20y%20precios.
-            target="_blank"
+            href="https://wa.me/541165134448?text=Bienvenidos,%20somos%20AURUMA.%20%C2%BFEn%20qu%C3%A9%20podemos%20ayudarte%3F%20Estamos%20para%20asesorarte%20sobre%20perfumes%2C%20recomendaciones%20y%20precios."
             rel="noopener noreferrer"
           >
             <i className="bi bi-whatsapp social-icon"></i>
