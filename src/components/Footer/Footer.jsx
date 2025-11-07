@@ -20,7 +20,7 @@ export const Footer = () => {
             <i className="bi bi-instagram social-icon"></i>
           </a>
           <a
-            href="https://wa.me/"
+            href="https://wa.me/541165134447"
             target="_blank"
             rel="noopener noreferrer"
           >
