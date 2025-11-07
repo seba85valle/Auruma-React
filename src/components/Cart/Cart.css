@@ -182,7 +182,6 @@ body:has(.cart-container) {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* MODAL REACT */
 .auruma-modal-overlay {
   position: fixed;
   inset: 0;
@@ -288,5 +287,12 @@ body:has(.cart-container) {
     width: 100%;
     max-width: 250px;
   }
+}
+
+.auruma-ticket {
+  font-family: "Courier New", monospace;
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  line-height: 1.35rem;
 }
 
