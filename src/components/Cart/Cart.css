@@ -83,18 +83,21 @@ body:has(.cart-container) {
   color: #333;
 }
 
-.cart-delete-btn {
+.btn-delete {
   background: transparent;
   border: none;
   font-size: 1.5rem;
   color: #666;
   cursor: pointer;
   transition: color 0.25s ease, transform 0.25s ease;
+  padding: 4px;
+  border-radius: 50%;
 }
 
-.cart-delete-btn:hover {
+.btn-delete:hover {
   color: #8b0000;
-  transform: scale(1.15);
+  transform: scale(1.18);
+  background: transparent;
 }
 
 .cart-footer {
@@ -180,18 +183,12 @@ body:has(.cart-container) {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.modal {
-  z-index: 9999 !important;
-}
-.modal-backdrop {
-  z-index: 9998 !important;
-}
-
 .auruma-modal {
   background: #ffffff;
   border-radius: 14px;
-  padding: 16px;
+  padding: 20px;
   box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  z-index: 999999;
 }
 
 .modal-header-auruma {
@@ -211,7 +208,7 @@ body:has(.cart-container) {
   background: transparent;
   border: none;
   color: #444;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   cursor: pointer;
 }
 
@@ -253,6 +250,15 @@ body:has(.cart-container) {
 
 .auruma-btn-light:hover {
   background: #e4e4e4;
+}
+
+.modal-backdrop.show {
+  opacity: 0.45 !important;
+  z-index: 9999 !important;
+}
+
+#whatsappModal {
+  z-index: 999999 !important;
 }
 
 @media (max-width: 768px) {
