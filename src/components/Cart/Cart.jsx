@@ -2,127 +2,132 @@ import { useCartContext } from "../../context/CartContext/useCartContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Cart.css";
+import logoAuruma from "/images/logo1.png";
 
 export const Cart = () => {
-  const { cart, deleteItem, clearCart, total } = useCartContext();
-  const [modalOpen, setModalOpen] = useState(false);
+  const { cart, clearCart, removeItem } = useCartContext();
+  const [showModal, setShowModal] = useState(false);
 
-  const generateWhatsAppMessage = (cart, total) => {
-    let message = "";
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-    message += "AURUMA\n\n";
-    message += "------------------------------\n";
-    message += "Detalle del pedido\n";
-    message += "------------------------------\n\n";
-    message += "Producto               Cant   Subtotal\n";
-    message += "--------------------------------------\n";
+  const generateTicket = () => {
+    const header = `AURUMA
 
-    cart.forEach((item) => {
-      const subtotal = item.quantity * item.price;
-      const namePadded = item.name.substring(0, 18).padEnd(20, " ");
-      const qtyPadded = String(item.quantity).padEnd(6, " ");
-      message += `${namePadded}${qtyPadded}$${subtotal.toLocaleString("es-AR")}\n`;
-    });
+------------------------------
+Detalle del pedido
+------------------------------
 
-    message += `\nTotal: $${total.toLocaleString("es-AR")}`;
-    message += `\n\nGracias por elegir AURUMA.`;
+Producto             Cant   Subtotal
+--------------------------------------`;
 
-    return message;
+    const lines = cart
+      .map((item) => {
+        const name = item.name.padEnd(20, " ").substring(0, 20);
+        const qty = String(item.quantity).padEnd(5, " ");
+        const sub = `$${(item.price * item.quantity).toLocaleString("es-AR")}`;
+        return `${name}${qty}${sub}`;
+      })
+      .join("\n");
+
+    const footer = `
+Total: $${total.toLocaleString("es-AR")}
+
+Gracias por elegir AURUMA.`;
+
+    return `${header}\n${lines}\n${footer}`;
+  };
+
+  const handleCheckout = () => {
+    setShowModal(true);
+  };
+
+  const handleSendWhatsApp = () => {
+    const ticket = generateTicket();
+    const encoded = encodeURIComponent(ticket);
+    window.open(`https://wa.me/541165134448?text=${encoded}`, "_blank");
   };
 
   if (cart.length === 0) {
     return (
-      <div className="cart-empty fade-in">
+      <div className="cart-empty">
         <h2>Tu carrito está vacío</h2>
-        <p>Agregá tus fragancias favoritas para continuar tu experiencia AURUMA.</p>
-        <Link to="/perfumes" className="btn-volver">Ir a la tienda</Link>
+        <Link to="/perfumes" className="btn-volver">
+          Volver al catálogo
+        </Link>
       </div>
     );
   }
 
   return (
-    <>
-      <div className="cart-container fade-in">
-        <h2 className="cart-title">Tu selección AURUMA</h2>
+    <div className="cart-container">
+      <h2 className="cart-title">Tu carrito</h2>
 
-        <div className="cart-list">
-          {cart.map((item) => (
-            <div key={item.id} className="cart-item slide-up">
-              <div className="cart-item-image">
-                <img src={item.imageUrl} alt={item.name} />
-              </div>
-
-              <div className="cart-item-info">
-                <h3 className="cart-item-name">{item.name}</h3>
-                {item.size && <p className="cart-item-size">{item.size}</p>}
-                <p className="cart-item-price">${Number(item.price).toLocaleString("es-AR")}</p>
-                <p className="cart-item-quantity">Cantidad: {item.quantity}</p>
-                <p className="cart-item-subtotal">
-                  Subtotal: ${(item.price * item.quantity).toLocaleString("es-AR")}
-                </p>
-              </div>
-
-              <button
-                className="btn-delete"
-                onClick={() => deleteItem(item.id)}
-                aria-label="Eliminar producto"
-              >
-                <i className="bi bi-trash3"></i>
-              </button>
+      <div className="cart-list">
+        {cart.map((item) => (
+          <div key={item.id} className="cart-item">
+            <div className="cart-item-image">
+              <img src={item.imageUrl} alt={item.name} />
             </div>
-          ))}
-        </div>
 
-        <div className="cart-footer">
-          <p className="cart-total">Total: ${Number(total()).toLocaleString("es-AR")}</p>
+            <div className="cart-item-info">
+              <p className="cart-item-name">{item.name}</p>
+              {item.size && <p className="cart-item-size">{item.size}</p>}
+              <p className="cart-item-price">
+                Precio: ${item.price.toLocaleString("es-AR")}
+              </p>
+              <p className="cart-item-quantity">Cantidad: {item.quantity}</p>
+              <p className="cart-item-subtotal">
+                Subtotal: ${Number(item.price * item.quantity).toLocaleString("es-AR")}
+              </p>
+            </div>
 
-          <div className="cart-buttons">
-            <button className="btn-clear" onClick={clearCart}>Vaciar carrito</button>
-
-            <button className="btn-checkout" onClick={() => setModalOpen(true)}>
-              Finalizar compra
+            <button className="btn-delete" onClick={() => removeItem(item.id)}>
+              ×
             </button>
           </div>
+        ))}
+      </div>
+
+      <div className="cart-footer">
+        <p className="cart-total">Total: ${total.toLocaleString("es-AR")}</p>
+
+        <div className="cart-buttons">
+          <button className="btn-clear" onClick={clearCart}>
+            Vaciar carrito
+          </button>
+
+          <button className="btn-checkout" onClick={handleCheckout}>
+            Continuar
+          </button>
         </div>
       </div>
 
-      {modalOpen && (
+      {showModal && (
         <div className="auruma-modal-overlay">
           <div className="auruma-modal-react">
-            <img src="/images/logo1.png" alt="AURUMA Logo" className="auruma-logo-modal" />
+            <button className="auruma-close" onClick={() => setShowModal(false)}>
+              ×
+            </button>
 
-            <h3 className="modal-title-auruma">Continuaremos por WhatsApp</h3>
-            <p className="modal-desc">
-              Coordinarás el pago y la entrega con nuestro equipo AURUMA.
-            </p>
+            <img src={logoAuruma} className="auruma-logo-modal" />
+
+            <h3 className="modal-title-auruma">Ticket de pedido</h3>
+
+            <pre className="auruma-ticket">{generateTicket()}</pre>
 
             <div className="modal-buttons">
-              <button
-                className="auruma-btn-dark w-100"
-                onClick={() => {
-                  const message = generateWhatsAppMessage(cart, total());
-                  const url = `https://wa.me/541165134447?text=${encodeURIComponent(message)}`;
-                  window.open(url, "_blank", "noopener,noreferrer");
-                  setModalOpen(false);
-                }}
-              >
-                Ir a WhatsApp
+              <button className="auruma-btn-dark" onClick={handleSendWhatsApp}>
+                Enviar por WhatsApp
               </button>
 
-              <Link
-                to="/perfumes"
-                className="auruma-btn-light w-100"
-                onClick={() => setModalOpen(false)}
-              >
+              <Link to="/perfumes" className="auruma-btn-light">
                 Volver al catálogo
               </Link>
             </div>
-
-            <button className="auruma-close" onClick={() => setModalOpen(false)}>×</button>
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
