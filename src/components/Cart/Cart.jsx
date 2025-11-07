@@ -24,7 +24,7 @@ Producto             Cant   Subtotal
       .map((item) => {
         const name = item.name.padEnd(20, " ").substring(0, 20);
         const qty = String(item.quantity).padEnd(5, " ");
-        const sub = `$${(item.price * item.quantity).toLocaleString("es-AR")}`;
+        const sub = `$${(item.price * item.quantity).toLocaleString("es-AR")}`.padEnd(10, " ");
         return `${name}${qty}${sub}`;
       })
       .join("\n");
@@ -43,7 +43,10 @@ Gracias por elegir AURUMA.`;
 
   const handleSendWhatsApp = () => {
     const ticket = generateTicket();
-    const encoded = encodeURIComponent(ticket);
+
+    const markdownTicket = "```" + ticket + "```";
+    const encoded = encodeURIComponent(markdownTicket);
+
     window.open(`https://wa.me/541165134447?text=${encoded}`, "_blank");
   };
 
