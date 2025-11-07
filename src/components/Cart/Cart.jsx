@@ -1,9 +1,35 @@
 import { useCartContext } from "../../context/CartContext/useCartContext";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import "./Cart.css";
 
 export const Cart = () => {
-  const { cart, deleteItem, clearCart, total, checkout } = useCartContext();
+  const { cart, deleteItem, clearCart, total } = useCartContext();
+
+  const generateWhatsAppMessage = (cart, total) => {
+    let message = "";
+
+    message += "AURUMA - Pedido\n";
+    message += "\n";
+    message += "------------------------------\n";
+    message += "Detalle del pedido\n";
+    message += "------------------------------\n\n";
+
+    message += "Producto               Cant   Subtotal\n";
+    message += "--------------------------------------\n";
+
+    cart.forEach((item) => {
+      const subtotal = item.quantity * item.price;
+      const namePadded = item.name.substring(0, 18).padEnd(20, " ");
+      const qtyPadded = String(item.quantity).padEnd(6, " ");
+      message += `${namePadded}${qtyPadded}$${subtotal.toLocaleString("es-AR")}\n`;
+    });
+
+    message += `\nTotal: $${total.toLocaleString("es-AR")}`;
+
+    message += `\n\nGracias por elegir AURUMA.`;
+
+    return message;
+  };
 
   if (cart.length === 0) {
     return (
@@ -60,9 +86,88 @@ export const Cart = () => {
           <button className="btn-clear" onClick={clearCart}>
             Vaciar carrito
           </button>
-          <button className="btn-checkout" onClick={checkout}>
+
+          <button
+            className="btn-checkout"
+            onClick={() => {
+              const modalEl = document.getElementById("whatsappModal");
+              if (modalEl && window.bootstrap?.Modal) {
+                const modal = new window.bootstrap.Modal(modalEl);
+                modal.show();
+              }
+            }}
+          >
             Finalizar compra
           </button>
+        </div>
+      </div>
+
+      {/* MODAL AURUMA WHATSAPP */}
+      <div
+        className="modal fade"
+        id="whatsappModal"
+        tabIndex="-1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content auruma-modal">
+            <div className="modal-header border-0 modal-header-auruma">
+              <img
+                src="/images/logo1.png"
+                alt="AURUMA Logo"
+                className="auruma-logo-modal"
+              />
+              <button
+                type="button"
+                className="auruma-close"
+                onClick={() => {
+                  const modalEl = document.getElementById("whatsappModal");
+                  const modal = window.bootstrap.Modal.getInstance(modalEl);
+                  if (modal) modal.hide();
+                }}
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="modal-body text-center">
+              <h5 className="modal-title-auruma">Continuaremos por WhatsApp</h5>
+              <p>
+                Coordinarás el pago y la entrega con nuestro equipo AURUMA.
+              </p>
+            </div>
+
+            <div className="modal-footer border-0 justify-content-center flex-column gap-3">
+              <button
+                className="auruma-btn-dark w-100"
+                onClick={() => {
+                  const message = generateWhatsAppMessage(cart, total());
+                  const url = `https://wa.me/541165134447?text=${encodeURIComponent(
+                    message
+                  )}`;
+                  window.open(url, "_blank");
+
+                  const modalEl = document.getElementById("whatsappModal");
+                  const modal = window.bootstrap.Modal.getInstance(modalEl);
+                  if (modal) modal.hide();
+                }}
+              >
+                Ir a WhatsApp
+              </button>
+
+              <Link
+                to="/perfumes"
+                className="auruma-btn-light w-100"
+                onClick={() => {
+                  const modalEl = document.getElementById("whatsappModal");
+                  const modal = window.bootstrap.Modal.getInstance(modalEl);
+                  if (modal) modal.hide();
+                }}
+              >
+                Volver al catálogo
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
