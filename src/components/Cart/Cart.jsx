@@ -10,7 +10,7 @@ export const Cart = () => {
   const generateWhatsAppMessage = (cart, total) => {
     let message = "";
 
-    message += "AURUMA - Pedido\n\n";
+    message += "AURUMA\n\n";
     message += "------------------------------\n";
     message += "Detalle del pedido\n";
     message += "------------------------------\n\n";
