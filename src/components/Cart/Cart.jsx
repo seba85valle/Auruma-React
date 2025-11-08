@@ -52,6 +52,7 @@ Gracias por elegir AURUMA.`;
     return (
       <div className="cart-empty">
         <h2>Tu carrito está vacío</h2>
+        <p>Agregá tus fragancias favoritas para continuar tu experiencia AURUMA.</p>
         <Link to="/perfumes" className="btn-volver">
           Volver al catálogo
         </Link>
