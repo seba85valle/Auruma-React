@@ -51,8 +51,6 @@ function App() {
                 <ProductFormContainer />
               </RutaProtegida>}/>
           </Route>
-          {/* Admin - Formulario de productos */}
-          <Route path="/admin" element={<ProductFormContainer />} />
         </Routes>
         <Footer />
       </CartProvider>
