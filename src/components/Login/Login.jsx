@@ -9,8 +9,8 @@ export const Login = () => {
     const navigate = useNavigate();
 
     if (user) {
-        return <navigate to="/admin/alta-productos" />;
-    }
+    return <Navigate to="/admin/alta-productos" replace />;
+}
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -20,7 +20,7 @@ export const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const success = login(useForm.name, useForm.password);
-        if success {
+        if (success) {
             navigate("/admin/alta-productos");
         }else {
             alert("Credenciales incorrectas");
