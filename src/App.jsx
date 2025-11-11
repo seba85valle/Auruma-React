@@ -8,39 +8,51 @@ import { ContactForm } from "./components/ContactForm/ContactForm";
 import { CartProvider } from "./context/CartContext/CartProvider";
 import { Cart } from "./components/Cart/Cart";
 import { ProductFormContainer } from "./components/adminComponents/ProductFormContainer/ProductFormContainer";
+import { MainLayout } from "./layouts/MainLayout";
+import { AdminLayout } from "./layouts/AdminLayout";
+import { Login } from "./components/Login/Login";
 
 import "./App.css";
+import { RutaProtegida } from "./RutaProtegida/RutaProtegida";
 
 function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <Nav />
         <Routes>
-          {/* Home */}
-          <Route path="/" element={<Home />} />
+          <Route element={<MainLayout />}>
+            {/* Home */}
+            <Route path="/" element={<Home />} />
 
-          {/* Perfumes */}
-          <Route
-            path="/perfumes"
-            element={<ItemListContainer titulo="Perfumes" />}
-          />
-          <Route
-            path="/perfumes/:categoria"
-            element={<ItemListContainer titulo="Perfumes" />}
-          />
+            {/* Perfumes */}
+            <Route
+              path="/perfumes"
+              element={<ItemListContainer titulo="Perfumes" />}
+            />
+            <Route
+              path="/perfumes/:categoria"
+              element={<ItemListContainer titulo="Perfumes" />}
+            />
 
-          {/* Detalle de producto */}
-          <Route path="/detail/:id" element={<ItemDetailContainer />} />
+            {/* Detalle de producto */}
+            <Route path="/detail/:id" element={<ItemDetailContainer />} />
           
-          {/* Carrito */}
-          <Route path="/carrito" element={<Cart />} />
+            {/* Carrito */}
+            <Route path="/carrito" element={<Cart />} />
+        
+            {/* Contacto */}
+            <Route path="/contacto" element={<ContactForm />} />
+          </Route>
 
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Login />}/>
+            <Route path="alta-productos" element={
+              <RutaProtegida>
+                <ProductFormContainer />
+              </RutaProtegida>}/>
+          </Route>
           {/* Admin - Formulario de productos */}
           <Route path="/admin" element={<ProductFormContainer />} />
-        
-          {/* Contacto */}
-          <Route path="/contacto" element={<ContactForm />} />
         </Routes>
         <Footer />
       </CartProvider>
@@ -49,8 +61,5 @@ function App() {
 }
 
 export default App;
-
-
-
 
 
