@@ -11,9 +11,10 @@ import { ProductFormContainer } from "./components/adminComponents/ProductFormCo
 import { MainLayout } from "./layouts/MainLayout";
 import { AdminLayout } from "./layouts/AdminLayout";
 import { Login } from "./components/Login/Login";
+import { RutaProtegida } from "./components/RutaProtegida/RutaProtegida";
 
 import "./App.css";
-import { RutaProtegida } from "./RutaProtegida/RutaProtegida";
+
 
 function App() {
   return (
