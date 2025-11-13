@@ -1,9 +1,13 @@
-import {Outlet} from 'react-router-dom';
+import { Outlet } from "react-router-dom";
+import { Nav } from "../components/Nav/Nav";
 
 export const AdminLayout = () => {
-    return (
-        <section>
-            <Outlet />
-        </section>
-    );
+  return (
+    <>
+      <Nav />
+      <main className="admin-layout">
+        <Outlet />
+      </main>
+    </>
+  );
 };
