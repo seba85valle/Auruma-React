@@ -1,46 +1,64 @@
 import { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext/useAuthContext";
 import { useNavigate, Navigate } from "react-router-dom";
+import "./Login.css";
 
 export const Login = () => {
-    const [useForm, setUseForm] = useState({name: '', password: ''});
-    const {user, login} = useAuthContext();
+  const [form, setForm] = useState({ name: "", password: "" });
+  const { user, login } = useAuthContext();
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    if (user) {
-        return <Navigate to="/admin/alta-productos" />;
+  if (user) {
+    return <Navigate to="/admin/alta-productos" />;
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const success = login(form.name, form.password);
+
+    if (success) {
+      navigate("/admin/alta-productos");
+    } else {
+      alert("Credenciales incorrectas");
+      setForm({ name: "", password: "" });
     }
+  };
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setUseForm({...useForm, [name]: value});
-    }
+  return (
+    <div className="login-container">
+      <form className="login-card" onSubmit={handleSubmit}>
+        <h2>Iniciar Sesión</h2>
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const success = login(useForm.name, useForm.password);
+        <div className="login-field">
+          <label htmlFor="login-name">Usuario:</label>
+          <input
+            id="login-name"
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+          />
+        </div>
 
-        if (success) {
-            navigate("/admin/alta-productos");
-        } else {
-            alert("Credenciales incorrectas");
-            setUseForm({name: '', password: ''});
-        }
-    }
+        <div className="login-field">
+          <label htmlFor="login-password">Contraseña:</label>
+          <input
+            id="login-password"
+            type="password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+          />
+        </div>
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <h2>Iniciar Sesión</h2>
-            <div>
-                <label>Usuario:</label>
-                <input type="text" value={useForm.name} onChange={handleChange} name="name" />
-            </div>
-            <div>
-                <label>Contraseña:</label>
-                <input type="password" value={useForm.password} onChange={handleChange} name="password" /> 
-            </div>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-    );
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    </div>
+  );
 };
